@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '$lib/site.css';
-	import { ArrowUpRight, ArrowRight } from 'lucide-svelte';
+	import { ArrowUpRight, Sun, Moon, Map, BarChart3, CalendarDays } from 'lucide-svelte';
+	import { onMount } from 'svelte';
 	import { SITE_URL, EMAIL, LINKEDIN_URL, bookingHref, BOOKING_URL } from '$lib/site';
 	import {
 		symptoms,
@@ -19,6 +20,14 @@
 	import HeroMap from './HeroMap.svelte';
 
 	const bookingLabel = 'Book a free 20-minute call';
+
+	let dark = $state(false);
+	function applyTheme(d: boolean) {
+		dark = d;
+		document.documentElement.dataset.theme = d ? 'dark' : 'light';
+		try { localStorage.setItem('theme', d ? 'dark' : 'light'); } catch {}
+	}
+	onMount(() => { dark = document.documentElement.dataset.theme === 'dark'; });
 	const bookingTarget = BOOKING_URL ? '_blank' : undefined;
 
 	const OG_IMAGE = `${SITE_URL}og.png`;
@@ -100,7 +109,7 @@
 		content="I map how your business actually works, then put in automated workflows and AI where they genuinely help. Fixed-price process mapping, roadmap and implementation across Asia-Pacific and Europe."
 	/>
 	<link rel="canonical" href={SITE_URL} />
-	<link rel="preload" href="/fonts/sans-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="Edward Batt" />
 	<meta property="og:title" content="Find where work gets stuck. Fix it with automation and AI that fits." />
@@ -116,13 +125,14 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={OG_IMAGE} />
 	<meta name="author" content="Edward Batt" />
-	<meta name="theme-color" content="#f4f6f8" />
+	<meta name="theme-color" content="#ffffff" />
 	{@html `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}<\/script>`}
 </svelte:head>
 
 <header class="nav">
 	<div class="wrap nav-inner">
-		<a class="brand" href="#top"><span class="brand-name">Edward Batt</span><span class="brand-sep" aria-hidden="true"></span><span class="brand-role">Digital Transformation</span></a>
+		<a class="logo" href="#top" aria-label="Edward Batt, home">EB<span>.</span></a>
+		<a class="nav-name" href="#top">Edward Batt</a>
 		<nav class="nav-links" aria-label="Sections">
 			<a href="#how">How it works</a>
 			<a href="#example">Example</a>
@@ -130,49 +140,68 @@
 			<a href="#about">About</a>
 			<a href="#pricing">Pricing</a>
 		</nav>
-		<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener">Book a call</a>
+		<div class="nav-right">
+			<button class="mode" type="button" onclick={() => applyTheme(!dark)} aria-pressed={dark} aria-label="Switch colour mode">
+				{#if dark}<Sun aria-hidden="true" /><span>Light</span>{:else}<Moon aria-hidden="true" /><span>Dark</span>{/if}
+			</button>
+			<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener">Book a call</a>
+		</div>
 	</div>
 </header>
 
 <main id="top">
-	<!-- Hero -->
+	<!-- Headline band -->
 	<section class="hero">
 		<div class="wrap">
+			<h1>Find where work gets stuck. Fix it with automation and AI that fits.</h1>
+			<p class="lead">
+				Process and systems mapping, workflow automation and practical AI for growing businesses,
+				with people kept in control of the decisions that matter.
+			</p>
+			<div class="hero-cta">
+				<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener">{bookingLabel}</a>
+				<a class="btn ghost" href="#how">See how it works</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Main visual band -->
+	<section class="band" aria-label="What a mapped process looks like">
+		<div class="wrap band-inner">
 			<div>
-				<p class="eyebrow">Process mapping · Automation · Practical AI</p>
-				<h1>Find where work gets stuck. <em>Fix it</em> with automation and AI that fits.</h1>
-				<p class="lead">
+				<p class="eyebrow">Process mapping</p>
+				<h2>See the friction before you buy the software.</h2>
+				<p>
 					I map how your business actually runs, across people, systems and handovers, then build
-					the automated workflows and AI tools that remove the friction. People stay in control of
-					the decisions that matter.
+					the automated workflows and AI tools that remove the friction.
 				</p>
-				<div class="hero-cta">
-					<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener"
-						>{bookingLabel}<ArrowRight size={18} aria-hidden="true" /></a
-					>
-					<a class="btn ghost" href="#how">See how it works</a>
-				</div>
-				<div class="hero-proof">
-					<span><b>30+</b>years running operations</span>
-					<span><b>6 wks</b>to a working pilot</span>
-					<span><b>EN · ID · MY</b>languages</span>
+				<div class="band-stats">
+					<div><b>30+</b><span>years running operations</span></div>
+					<div><b>6 weeks</b><span>from mapping to a working pilot</span></div>
+					<div><b>3</b><span>working languages</span></div>
 				</div>
 			</div>
 			<HeroMap />
 		</div>
 	</section>
+	<div class="wrap quick">
+		<div class="quick-inner">
+			<strong>Quick links</strong>
+			<a href="#how"><Map aria-hidden="true" />How it works</a>
+			<a href="#results"><BarChart3 aria-hidden="true" />Results</a>
+			<a href={bookingHref} target={bookingTarget} rel="noopener"><CalendarDays aria-hidden="true" />Book a call</a>
+		</div>
+	</div>
 
 	<!-- Problem -->
 	<section class="section" id="problem">
 		<div class="wrap">
-			<div class="section-head">
-				<p class="eyebrow">Sound familiar?</p>
+			<div class="section-head center">
 				<h2 class="h2">Busy teams. Slipping delivery.</h2>
 			</div>
 			<div class="symptoms">
 				{#each symptoms as s, i}
 					<div class="symptom">
-						<span class="n">{String(i + 1).padStart(2, '0')}</span>
 						<h3>{s.title}</h3>
 						<p>{s.body}</p>
 					</div>
@@ -187,10 +216,9 @@
 	</section>
 
 	<!-- How it works -->
-	<section class="section" id="how">
+	<section class="section alt" id="how">
 		<div class="wrap">
-			<div class="section-head">
-				<p class="eyebrow">How it works</p>
+			<div class="section-head center">
 				<h2 class="h2">Five stages. You decide after each one.</h2>
 				<p class="lead">
 					Start with a free conversation. Mapping is a fixed price agreed up front, and the roadmap
@@ -217,10 +245,9 @@
 	</section>
 
 	<!-- Results -->
-	<section class="section" id="results">
+	<section class="section alt" id="results">
 		<div class="wrap">
-			<div class="section-head">
-				<p class="eyebrow">Results</p>
+			<div class="section-head center">
 				<h2 class="h2">Mapped, built and running.</h2>
 				<p class="lead">
 					I design and build the systems myself, so every roadmap is grounded in what can actually
@@ -264,9 +291,8 @@
 	<!-- Testimonials -->
 	<section class="section" id="testimonials">
 		<div class="wrap">
-			<div class="section-head">
-				<p class="eyebrow">What clients say</p>
-				<h2 class="h2">In their words.</h2>
+			<div class="section-head center">
+				<h2 class="h2">What clients say.</h2>
 			</div>
 			<div class="quotes">
 				{#each testimonials as t}
@@ -280,12 +306,11 @@
 	</section>
 
 	<!-- About -->
-	<section class="section" id="about">
+	<section class="section alt" id="about">
 		<div class="wrap about">
 			<div>
 				<div class="about-id">
 					<img class="portrait" src="/edward-batt.jpg" alt="Edward Batt" width="144" height="144" />
-					<p class="eyebrow">About</p>
 				</div>
 				<h2 class="h2">An operator who builds.</h2>
 				<div class="about-body lead">
@@ -313,7 +338,6 @@
 	<section class="section" id="pricing">
 		<div class="wrap pricing">
 			<div>
-				<p class="eyebrow">Pricing</p>
 				<h2 class="h2">A fixed price before anything starts.</h2>
 				<div class="prices">
 					{#each pricing as p}
@@ -330,7 +354,7 @@
 				</p>
 			</div>
 			<div class="faq">
-				<p class="eyebrow" style="margin-bottom: 16px">Questions</p>
+				<h3>Common questions</h3>
 				{#each faqs as f}
 					<details>
 						<summary>{f.q}</summary>
@@ -345,17 +369,14 @@
 	<section class="section contact" id="contact">
 		<div class="wrap contact-grid">
 			<div>
-				<p class="eyebrow">Next step</p>
 				<h2 class="h2">Tell me where work gets stuck.</h2>
 				<p class="lead">
 					Twenty minutes, no charge. If mapping wouldn’t pay for itself, I’ll tell you.
 				</p>
 				<div class="hero-cta">
-					<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener"
-						>{bookingLabel}<ArrowRight size={18} aria-hidden="true" /></a
-					>
+					<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener">{bookingLabel}</a>
 					<a class="btn ghost" href={LINKEDIN_URL} target="_blank" rel="noopener"
-						>LinkedIn<ArrowUpRight size={16} aria-hidden="true" /></a
+						>LinkedIn<ArrowUpRight aria-hidden="true" /></a
 					>
 				</div>
 			</div>

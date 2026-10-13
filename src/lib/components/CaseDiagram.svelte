@@ -94,14 +94,14 @@
 	<title>{d.title}</title>
 	<defs>
 		<marker id={`arrow-${variant}`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-			<path d="M0 0 L8 4 L0 8 Z" fill="var(--line-strong)" />
+			<path d="M0 0 L8 4 L0 8 Z" fill="var(--muted)" />
 		</marker>
 	</defs>
 	{#each d.edges as e}
 		<path
 			d={e.path ?? straight(e)}
 			fill="none"
-			stroke="var(--line-strong)"
+			stroke="var(--muted)"
 			stroke-width="1.6"
 			marker-end={`url(#arrow-${variant})`}
 		/>
