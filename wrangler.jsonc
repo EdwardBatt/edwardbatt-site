@@ -8,5 +8,7 @@
 	"assets": {
 		"directory": "./build",
 		"not_found_handling": "none"
-	}
+	},
+	// Required by `wrangler preview`, which Cloudflare runs for preview builds.
+	"previews": {}
 }
