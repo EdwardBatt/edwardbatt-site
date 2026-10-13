@@ -10,7 +10,8 @@
 		timeline,
 		pricing,
 		faqs,
-		stages
+		stages,
+		testimonials
 	} from '$lib/content';
 	import StageExplorer from './StageExplorer.svelte';
 	import MappingExample from './MappingExample.svelte';
@@ -255,6 +256,24 @@
 			<div class="other">
 				{#each otherWork as w}
 					<div><h4>{w.name}</h4><p>{w.body}</p></div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="section" id="testimonials">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">What clients say</p>
+				<h2 class="h2">In their words.</h2>
+			</div>
+			<div class="quotes">
+				{#each testimonials as t}
+					<figure class="quote">
+						<blockquote><p>{t.quote}</p></blockquote>
+						<figcaption><span class="qn">{t.name}</span><span class="qr">{t.role}</span></figcaption>
+					</figure>
 				{/each}
 			</div>
 		</div>

@@ -272,3 +272,24 @@ export const faqs = [
 		a: 'Then you have a clear picture of how your business runs and where it can improve, and you will have spent far less than a failed software project.'
 	}
 ];
+
+export const testimonials = [
+	{
+		quote:
+			'As CTO, Edward took GGI, our esports tournament platform for gamers in Iraq, from concept to a working MVP in about three months and full functionality within six. He automated the parts that used to take hours of manual coordination: tournament formats, fixtures, Discord channels and leaderboards. More than 5,000 players registered in the first three months. Edward combines hands-on development with a clear understanding of how operations actually run.',
+		name: 'Jahan Bybordi',
+		role: 'COO, ESTAZ'
+	},
+	{
+		quote:
+			'We brought Edward in to assist with a game development project and act as an advisor to identify technical problems we couldn’t get to the bottom of. He reviewed the architecture and backend, identified the risks our team hadn’t flagged, and explained them in terms our leadership could act on. More importantly, he guided us through resolving the issues with our development team rather than just handing over a report. His mix of technical depth and operational experience gave us clarity and confidence at a point where we needed both.',
+		name: 'Naji Ghaziri',
+		role: 'Mobile Gaming Product Leader, MBC Group'
+	},
+	{
+		quote:
+			'Edward led both the business model and the solution architecture for SideGig, our platform matching brands with creators. He translated our commercial model into clear workflows and a technical design, bringing in AI-assisted ingestion and matching while keeping people in control of the decisions that matter. He understood the business as well as the technology, which meant the platform was designed around how the business actually needs to work.',
+		name: 'Ralph Bejjani',
+		role: 'CEO, SideGig'
+	}
+];
