@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PortfolioPage from '$lib/components/PortfolioPage.svelte';
+	import SitePage from '$lib/components/SitePage.svelte';
 </script>
 
-<PortfolioPage />
+<SitePage />
