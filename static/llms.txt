@@ -1,6 +1,6 @@
 # Edward Batt — Digital Transformation
 
-> Edward Batt is a digital transformation consultant who maps how a business actually works (people, systems, handovers and decisions), then designs and builds automated workflows and practical AI where they genuinely help, with people kept in control of consequential decisions. He works with growing businesses across Asia-Pacific and Europe, remotely or on site, in English, Bahasa Indonesia and Malay.
+> Edward Batt is a digital transformation consultant who maps how a business actually works (people, systems, handovers and decisions), then designs and builds automated workflows and practical AI where they genuinely help, with people kept in control of consequential decisions. He works with growing businesses across Asia-Pacific, the Middle East and Europe, remotely or on site, in English, Bahasa Indonesia and Malay.
 
 ## Service: one package in five stages
 
@@ -23,6 +23,18 @@ Pricing: the discovery call is free; mapping and roadmap is a fixed price quoted
 ## Background
 
 30+ years in operations, contracts and procurement (oil, gas and LNG, logistics and cold chain, mining and infrastructure) across Asia-Pacific, the Middle East, Africa, Australia and South America; former Chief Technology Officer (ESTAZ, 2023–2026) and Chief Operations Officer; RAAF School of Languages Indonesian linguist graduate.
+
+## Pages
+
+- Services (how the package works, FAQ): https://edwardbatt.com/services/
+- Work (case studies): https://edwardbatt.com/work/
+  - https://edwardbatt.com/work/agency-operations-platform/
+  - https://edwardbatt.com/work/ggi-esports-platform/
+  - https://edwardbatt.com/work/ai-invoice-matching/
+- About: https://edwardbatt.com/about/
+- Regions: https://edwardbatt.com/regions/southeast-asia/ and https://edwardbatt.com/regions/middle-east/
+- Insights (articles): https://edwardbatt.com/insights/
+- Contact: https://edwardbatt.com/contact/
 
 ## Contact
 

@@ -265,7 +265,7 @@ export const faqs = [
 	},
 	{
 		q: 'Do you work remotely?',
-		a: 'Yes, across Asia-Pacific and Europe. On-site workshops are possible in Indonesia and the region. I work in English, Bahasa Indonesia and Malay.'
+		a: 'Yes, across Asia-Pacific, the Middle East and Europe. On-site workshops are possible in Indonesia and the region. I work in English, Bahasa Indonesia and Malay.'
 	},
 	{
 		q: 'What if mapping shows nothing worth automating?',
