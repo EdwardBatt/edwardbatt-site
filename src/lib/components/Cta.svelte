@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { ArrowUpRight } from 'lucide-svelte';
 	import { EMAIL, LINKEDIN_URL, bookingHref, BOOKING_URL } from '$lib/site';
-	let { title = 'Tell me where work gets stuck.', lead = 'Twenty minutes, no charge. If mapping wouldn’t pay for itself, I’ll tell you.' } = $props();
+	let {
+		title = 'Let’s discuss your business challenges.',
+		lead = 'A free 20-minute conversation about where your business is losing time and money, and what it would take to fix it. If I can’t help, I’ll say so.'
+	} = $props();
 	const bookingTarget = BOOKING_URL ? '_blank' : undefined;
 </script>
 

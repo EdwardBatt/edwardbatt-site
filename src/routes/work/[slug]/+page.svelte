@@ -3,7 +3,7 @@
 	import { testimonials } from '$lib/content';
 	import { casePages } from '$lib/pages';
 	import Seo from '$lib/components/Seo.svelte';
-	import CaseDiagram from '$lib/components/CaseDiagram.svelte';
+	import CaseViz from '$lib/viz/CaseViz.svelte';
 	import Cta from '$lib/components/Cta.svelte';
 
 	let { data } = $props();
@@ -31,7 +31,11 @@
 	</div>
 </section>
 
-<section class="section">
+<section class="section case-hero">
+	<div class="wrap"><CaseViz variant={page.id} /></div>
+</section>
+
+<section class="section case-detail">
 	<div class="wrap case-layout">
 		<div class="prose">
 			{#each page.sections as s}
@@ -51,9 +55,13 @@
 			{/if}
 		</div>
 		<aside class="case-aside">
-			<div class="case-side">
-				<CaseDiagram variant={page.id} />
-				<div class="figure"><div class="v">{summary.outcomeFigure}</div><p class="l">{summary.outcomeLabel}</p><p class="o">{summary.outcome}</p></div>
+			<div class="aside-links">
+				<h3>Outcome</h3>
+				<p class="aside-text">{summary.outcome}</p>
+			</div>
+			<div class="aside-links">
+				<h3>My role</h3>
+				<p class="aside-text">{page.role}</p>
 			</div>
 			<div class="aside-links">
 				<h3>More work</h3>
@@ -63,4 +71,4 @@
 	</div>
 </section>
 
-<Cta title="Have a process that looks like this?" lead="Twenty minutes, no charge, to see whether mapping it would pay for itself." />
+<Cta title="Have a challenge like this one?" lead="A free 20-minute conversation about your business, what is getting in the way, and what it would take to fix it." />

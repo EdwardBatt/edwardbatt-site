@@ -6,7 +6,7 @@
 	<div class="wrap footer-grid">
 		<div>
 			<div class="footer-brand">Edward Batt</div>
-			<p>Digital transformation: process and systems mapping, workflow automation and practical AI.</p>
+			<p>Digital transformation from the business problem to working software: mapping, solution design, custom development, integration, automation and AI.</p>
 		</div>
 		<nav aria-label="Footer">
 			<a href="/services/">Services</a>

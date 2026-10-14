@@ -6,15 +6,15 @@
 </script>
 
 <Seo
-	title="Contact Edward Batt: book a free discovery call"
-	description="Book a free 20-minute discovery call, or email edward@edwardbatt.com. Working with businesses across Asia-Pacific, the Middle East and Europe, remote or on site."
+	title="Contact Edward Batt: let’s discuss your business challenges"
+	description="Let’s discuss your business challenges. Book a free 20-minute call or email edward@edwardbatt.com. Digital transformation, custom software and hands-on technical leadership across Asia-Pacific, the Middle East and Europe."
 	path="/contact/"
 />
 
 <section class="page-head">
 	<div class="wrap">
-		<h1>Tell me where work gets stuck.</h1>
-		<p class="lead">Twenty minutes, no charge. If mapping wouldn’t pay for itself, I’ll tell you.</p>
+		<h1>Let’s discuss your business challenges.</h1>
+		<p class="lead">Whether it is a process that no longer scales, systems that do not talk to each other, something you need built, or a question about where AI fits: a free 20-minute conversation is the place to start.</p>
 	</div>
 </section>
 
@@ -22,7 +22,7 @@
 	<div class="wrap contact-page">
 		<div>
 			<h2>Book a call</h2>
-			<p>Pick a time that suits you. We’ll talk about where time, money and deadlines are being lost, and whether mapping is worth doing.</p>
+			<p>Pick a time that suits you. We’ll talk about your business, what is getting in the way, and what it would take to fix it. If I can’t help, I’ll say so.</p>
 			<a class="btn" href={bookingHref} target={bookingTarget} rel="noopener">Book a free 20-minute call</a>
 		</div>
 		<div>

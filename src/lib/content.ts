@@ -1,19 +1,19 @@
 export const symptoms = [
 	{
-		title: 'Deadlines slip without warning',
-		body: 'Nobody can see who is overloaded until a client is already waiting.'
+		title: 'Growth has outrun the systems',
+		body: 'Work still runs on spreadsheets, chat threads and one or two people who know how everything fits together.'
 	},
 	{
-		title: 'Work lives in chat and inboxes',
-		body: 'Briefs, approvals and handovers are scattered across WhatsApp, email and spreadsheets.'
+		title: 'Software that does not fit',
+		body: 'Tools have been bought, but people retype, chase and copy between them because none of them match how the business actually works.'
 	},
 	{
-		title: 'Software the work runs around',
-		body: 'Tools have been bought, but people still retype, chase and copy between them.'
+		title: 'Systems that do not talk to each other',
+		body: 'Sales, operations and finance each have their own system. Nobody has one picture, and every handover is manual.'
 	},
 	{
 		title: 'AI without a clear place',
-		body: 'Everyone agrees AI could help. Nobody is sure where it is safe or worth using.'
+		body: 'Everyone agrees AI could help. Nobody is sure where it is safe, worth using, or how to keep people in control.'
 	}
 ];
 
@@ -33,74 +33,108 @@ export const stages: Stage[] = [
 		when: '20 minutes',
 		price: 'Free',
 		happens:
-			'A short call about where time, money and deadlines are being lost. If mapping would not pay for itself, I will say so.',
-		receive: ['An honest view of whether this is worth doing', 'A proposed scope and fixed price for mapping']
+			'A conversation about your business, where it is losing time and money, and what you are trying to achieve. If I do not think I can help, I will say so.',
+		receive: ['A clear view of whether this is worth pursuing', 'A proposed scope and fixed price for the next step']
 	},
 	{
 		id: 'map',
-		name: 'Mapping',
+		name: 'Mapping and analysis',
 		when: 'Typically 1–2 weeks',
 		price: 'Fixed price',
 		happens:
-			'I map how work actually flows today: the people, systems, handovers and decisions, and where each one stalls. Interviews with the people who do the work, not just the managers.',
+			'I map how work actually flows today across people, systems, handovers and decisions, and where each one stalls. I talk to the people who do the work, not only the managers, and I look at the systems and data you already have.',
 		receive: [
-			'A current-state map of your core processes',
-			'Friction points marked: delays, retyping, bottlenecks, risk',
-			'A list of the systems involved and how they connect'
+			'A current-state map of your core processes and systems',
+			'Inefficiencies, risks and opportunities identified and ranked',
+			'A clear view of what is worth fixing, and what is not'
 		]
 	},
 	{
-		id: 'roadmap',
-		name: 'Roadmap',
+		id: 'design',
+		name: 'Solution design',
 		when: 'Delivered with the map',
 		price: 'Included',
 		happens:
-			'We decide together what to automate, where AI genuinely helps, and where a person must stay in control of the decision.',
+			'I design the solution that fits the problem: a custom application, an existing platform configured properly, integration between the systems you already have, automation, AI, or a combination. The technology is chosen to fit the business, not the other way around.',
 		receive: [
-			'Ranked opportunities with expected return and effort',
-			'Human checkpoints defined for every automated step',
-			'A sequenced 90-day plan you can act on with or without me'
+			'A solution design and architecture you can take to anyone',
+			'Expected return and effort for each part',
+			'A sequenced plan, with human checkpoints defined for every automated or AI-assisted step'
 		]
 	},
 	{
 		id: 'build',
-		name: 'Implementation',
-		when: 'Scoped from the roadmap',
+		name: 'Build and integrate',
+		when: 'Scoped from the design',
 		price: 'Quoted per project',
 		happens:
-			'I design and build the automated flows, integrations and AI tools myself, then train your team and hand them over.',
-		receive: ['Working systems in daily use', 'Training and documentation', 'Everything owned by you']
+			'I build it myself: custom software, integrations, automated workflows and AI components, with automated tests and proper deployment. I also configure and connect existing platforms where they are the right answer.',
+		receive: ['Working software in daily use', 'Documentation, training and full handover', 'Everything owned by you, including the code']
 	},
 	{
 		id: 'support',
-		name: 'Support',
+		name: 'Deploy and improve',
 		when: 'Optional, monthly',
 		price: 'Retainer',
-		happens: 'Refining and extending the systems as the business changes, and keeping adoption on track.',
-		receive: ['Regular reviews against the roadmap', 'Changes and new automations as needs grow']
+		happens:
+			'Deployment into production, then measured improvement: refining what was built, extending it as the business changes, and keeping adoption on track.',
+		receive: ['Production deployment and monitoring', 'Regular reviews against the plan', 'Changes and new capabilities as needs grow']
 	}
 ];
 
+/** Engagements that can be taken on their own, without the full lifecycle. */
 export const extras = [
 	{
-		title: 'Tool selection and vendor procurement',
-		body: 'Choosing software, comparing vendors and negotiating the contract, from someone who has run contracts and procurement on major oil, gas and LNG projects.'
+		title: 'Custom software development',
+		body: 'Web applications and platforms designed and built from your requirements, with tests, documentation and deployment. Engaged on its own or as part of a wider programme.'
 	},
 	{
-		title: 'AI adoption training',
-		body: 'Practical workshops so your team uses what has been put in place, and knows where AI should not be trusted.'
+		title: 'Systems integration',
+		body: 'Connecting the systems you already run so data moves between them without retyping: ERP, CRM, finance, messaging and the tools your team lives in.'
 	},
 	{
-		title: 'Systems review',
-		body: 'An independent look at your existing systems, integrations and in-house or outsourced developers.'
+		title: 'Technical review and architecture',
+		body: 'An independent assessment of an existing system, codebase or architecture, or the design of a new one, with findings your leadership can act on.'
 	},
 	{
-		title: 'Fractional transformation lead',
-		body: 'Ongoing ownership of the programme when you do not have someone in-house to drive it.'
+		title: 'AI implementation',
+		body: 'AI put to work on specific tasks, such as reading documents, drafting, matching and classification, with rules and human checkpoints around every consequential decision.'
 	},
 	{
-		title: 'Custom platform builds',
-		body: 'When off-the-shelf tools do not fit the way you work, I design and build the system.'
+		title: 'Platform selection and procurement',
+		body: 'Choosing between build and buy, comparing vendors and negotiating the contract, from someone who has run contracts and procurement on major energy projects.'
+	},
+	{
+		title: 'Hands-on technical leadership',
+		body: 'Fractional CTO or transformation lead: owning the technical direction and delivery when you do not have that person in-house.'
+	}
+];
+
+/** How I build: capability areas shown without a wall of logos. */
+export const capabilities = [
+	{
+		title: 'Web applications and platforms',
+		body: 'Multi-tenant, role-based applications in TypeScript with React or Svelte, built to be used daily by real teams, in English and Arabic where needed.'
+	},
+	{
+		title: 'Architecture and databases',
+		body: 'PostgreSQL schema design, row-level security, migrations and database tests. Systems designed so they can grow without being rebuilt.'
+	},
+	{
+		title: 'Integrations and automation',
+		body: 'APIs, webhooks, background job queues and bots that connect existing systems and remove manual handovers.'
+	},
+	{
+		title: 'AI with controls',
+		body: 'Large language models for reading, drafting, matching and classification, with deterministic rules and human approval outside the model.'
+	},
+	{
+		title: 'Cloud and delivery',
+		body: 'Serverless and edge deployment, CI pipelines, automated end-to-end testing and monitoring, so what ships keeps working.'
+	},
+	{
+		title: 'Existing platforms',
+		body: 'When an off-the-shelf tool is the right answer, I configure it properly, connect it to the rest of your systems and make sure people use it.'
 	}
 ];
 
@@ -151,16 +185,18 @@ export const cases: CaseStudy[] = [
 		title: 'A creative agency that could not see its own workload',
 		client: 'Regional creative and marketing agency · Iraq, Egypt and Dubai',
 		problem:
-			'Requests arrived by chat and email, schedules lived in spreadsheets, and overload only became visible when a deadline was missed.',
+			'Requests arrived by chat and email, schedules lived in spreadsheets, and overload only became visible when a deadline was missed. Off-the-shelf tools assumed a workflow the agency did not follow.',
 		did: [
 			'Mapped the real operating flow against international agency practice',
-			'Designed resource-first scheduling: capacity is checked before work is committed',
-			'Built the platform: intake, AI-assisted briefs, scheduling, approvals and an exceptions dashboard',
-			'Warnings for impossible deadlines, weekends and holidays let people proceed, with every override logged'
+			'Intake from any channel into one record; AI drafts the brief and proposes deliverables from the agency’s deliverables catalogue, with a person completing and approving',
+			'End-to-end automated workflow: approved items are forwarded automatically to the people who need them for their own tasks',
+			'Resource-first scheduling with capacity checked before commitment, SLAs, time tracking and an exceptions dashboard',
+			'Document control with automatic versioning, filing and archiving; role-based access and a full audit trail',
+			'Multi-tenant, English and Arabic, with automated database and end-to-end tests'
 		],
 		outcome: 'Pilot running with Client Services and Creative teams',
 		outcomeFigure: '6 weeks',
-		outcomeLabel: 'to a working pilot'
+		outcomeLabel: 'from mapping to a working pilot'
 	},
 	{
 		id: 'esports',
@@ -168,15 +204,34 @@ export const cases: CaseStudy[] = [
 		title: 'Running tournaments without an army of coordinators',
 		client: 'GGI esports platform · Iraq',
 		problem:
-			'Every tournament meant building brackets, fixtures and Discord channels by hand, which capped how many events could run.',
+			'Running tournaments is mostly coordination: formats, fixtures, Discord channels, results, promotion. Done by hand, that capped how many events could run and how reliable they were.',
 		did: [
-			'Automated tournament formats and fixture generation',
-			'Discord channels, fixtures and leaderboards created and updated automatically',
-			'Registration, results and rankings in one system, in English and Arabic'
+			'Lead developer and solution architect as CTO',
+			'Tournament engines that scale from small community events to 4,000+ competitors: formats, fixtures, brackets and advancement generated by the system',
+			'Two-way Discord integration: channels, fixtures and results synchronised between the platform and Discord',
+			'Automatic generation of social media plans to promote each tournament',
+			'Registration, teams, referees, results and rankings in one system, in English and Arabic'
 		],
 		outcome: 'MVP in about three months, full functionality in six',
 		outcomeFigure: '5,000+',
 		outcomeLabel: 'users registered in the first three months'
+	},
+	{
+		id: 'keystone',
+		kicker: 'Engineering tooling',
+		title: 'Keeping AI-assisted software projects from drifting',
+		client: 'Keystone · own project, open to clients',
+		problem:
+			'AI coding assistants are fast, but on a real project they forget the decisions, rules and lessons that came before, and the codebase drifts. The context that keeps a project consistent lives in people’s heads and chat histories.',
+		did: [
+			'Designed a system that keeps requirements, decisions, tasks, rules and learnings in the repository itself',
+			'Built a command-line tool that compiles exactly the context an AI agent needs for each task, deterministically',
+			'A three-role review gate before any task can be closed',
+			'248 automated tests; used to manage its own development'
+		],
+		outcome: 'Eight working commands, deterministic output, used to manage its own development',
+		outcomeFigure: '248',
+		outcomeLabel: 'automated tests, byte-identical output on every run'
 	},
 	{
 		id: 'ap',
@@ -201,15 +256,19 @@ export const cases: CaseStudy[] = [
 export const otherWork = [
 	{
 		name: 'Creator marketplace',
-		body: 'Lead solution and business-model architect for a platform matching brands with creators: AI-assisted ingestion, matching and human review.'
+		body: 'Lead solution and business-model architect for SideGig, a platform matching brands with creators: briefs, proposals and payments, with AI-assisted ingestion and matching and human review.'
 	},
 	{
-		name: 'Keystone',
-		body: 'A tool that keeps AI coding assistants consistent with a project’s decisions and rules. Built and tested with 248 automated tests, and used to build itself.'
+		name: 'Technical review for a game studio',
+		body: 'Reviewed the architecture and backend of a mobile game project for MBC Group, identified the risks the team had not flagged, and worked with their developers to resolve them.'
 	},
 	{
 		name: 'Support chatbot platform',
-		body: 'A chatbot that answers from a company’s own documents and websites, and hands over to a person when it should.'
+		body: 'A chatbot that answers from a company’s own documents and websites, and hands over to a person when it should. Built with a document-ingestion pipeline and vector search.'
+	},
+	{
+		name: 'Tournament site on existing tools',
+		body: 'A registration, bracket and leaderboard site for an esports event in the UAE, built quickly and cheaply on Google Sheets and Apps Script because that was the right fit.'
 	}
 ];
 
@@ -232,44 +291,44 @@ export const pricing = [
 	{
 		region: 'Discovery call',
 		range: 'Free',
-		note: '20 minutes to see whether mapping is worth doing'
+		note: '20 minutes to talk through your business challenges'
 	},
 	{
-		region: 'Mapping and roadmap',
+		region: 'Mapping and solution design',
 		range: 'Fixed price',
 		note: 'Quoted after the discovery call, before any work starts'
 	},
 	{
-		region: 'Implementation and support',
-		range: 'Quoted from the roadmap',
-		note: 'You decide what to build, and when'
+		region: 'Build, integration or review',
+		range: 'Quoted per project',
+		note: 'With or without the mapping stage. You decide what to build, and when'
 	}
 ];
 
 export const faqs = [
 	{
-		q: 'How long does mapping take?',
-		a: 'Usually one to two weeks for two or three core processes, depending on how many people and systems are involved. You get the price and timing before anything starts.'
+		q: 'Do I have to start with mapping?',
+		a: 'No. If you already know what you need built, reviewed or integrated, we start there. Mapping is where I start when the problem is not yet clear, because it is the cheapest way to avoid building the wrong thing.'
+	},
+	{
+		q: 'Do you build it yourself, or hand it to a team?',
+		a: 'I design and build it myself. You deal with the person who understood the problem, designed the solution and wrote the code, not an account manager.'
 	},
 	{
 		q: 'Do we need to buy new software?',
-		a: 'Often not. Many of the best improvements come from connecting and using what you already have. Where something new is needed, I help you choose and negotiate it.'
+		a: 'Often not. Many of the best improvements come from connecting and properly using what you already have. Where something new is needed, I help you choose between building and buying, and negotiate it.'
 	},
 	{
 		q: 'Will AI make decisions for us?',
-		a: 'Only where you decide it should. Every automated step in the roadmap has a defined human checkpoint, and anything consequential stays with a person.'
+		a: 'Only where you decide it should. Every automated or AI-assisted step has a defined human checkpoint, and anything consequential stays with a person.'
 	},
 	{
-		q: 'What happens to our data?',
-		a: 'It stays yours. I am happy to work under NDA, use your accounts and systems wherever possible, and everything built is handed over to you.'
+		q: 'What happens to our data and code?',
+		a: 'They stay yours. I work under NDA where needed, use your accounts and systems wherever possible, and everything built is handed over to you with documentation.'
 	},
 	{
 		q: 'Do you work remotely?',
-		a: 'Yes, across Asia-Pacific, the Middle East and Europe. On-site workshops are possible in Indonesia and the region. I work in English, Bahasa Indonesia and Malay.'
-	},
-	{
-		q: 'What if mapping shows nothing worth automating?',
-		a: 'Then you have a clear picture of how your business runs and where it can improve, and you will have spent far less than a failed software project.'
+		a: 'Yes, across Asia-Pacific, the Middle East and Europe. On-site work is possible in Indonesia and the region. I work in English, Bahasa Indonesia and Malay.'
 	}
 ];
 

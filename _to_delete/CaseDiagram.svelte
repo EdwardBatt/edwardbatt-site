@@ -49,6 +49,26 @@
 				{ from: 'lb', to: 'fix', label: 'next round', path: 'M245 302 L300 302 L300 134 L249 134' }
 			]
 		},
+		keystone: {
+			title: 'How Keystone briefs an AI agent for each task',
+			h: 352,
+			nodes: [
+				{ id: 'ctx', x: 95, y: 6, w: 150, label: 'Decisions, rules, lessons', tag: 'human' },
+				{ id: 'val', x: 95, y: 62, w: 150, label: 'Validated in the repo', tag: 'auto' },
+				{ id: 'task', x: 95, y: 118, w: 150, label: 'Task started', tag: 'human' },
+				{ id: 'comp', x: 95, y: 174, w: 150, label: 'Context compiled', tag: 'auto' },
+				{ id: 'ai', x: 95, y: 230, w: 150, label: 'AI agent works', tag: 'ai' },
+				{ id: 'rev', x: 95, y: 286, w: 150, label: 'Three-role review gate', tag: 'human' }
+			],
+			edges: [
+				{ from: 'ctx', to: 'val' },
+				{ from: 'val', to: 'task' },
+				{ from: 'task', to: 'comp' },
+				{ from: 'comp', to: 'ai' },
+				{ from: 'ai', to: 'rev' },
+				{ from: 'rev', to: 'ctx', label: 'lessons kept', path: 'M245 302 L300 302 L300 22 L249 22' }
+			]
+		},
 		ap: {
 			title: 'How an invoice is matched and approved',
 			h: 352,

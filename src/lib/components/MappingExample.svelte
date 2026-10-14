@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { exampleAfter, exampleBefore } from '$lib/content';
-	import FlowList from './FlowList.svelte';
+	import QuoteFlow from '$lib/viz/QuoteFlow.svelte';
 
 	let view = $state<'before' | 'after'>('before');
 	const views = {
@@ -13,21 +13,17 @@
 </script>
 
 <div class="example">
-	<div>
+	<div class="example-intro">
 		<p class="eyebrow">What a mapping shows you</p>
 		<h2 class="h2">The same work, mapped then fixed.</h2>
 		<p class="lead">
-			An illustrative quote-to-invoice process in a 40-person distribution company. Every step is
-			real work someone does today. Switch to see what the roadmap changes, and where people keep
-			the decision.
+			An illustrative quote-to-invoice process in a 40-person distribution company. Each lane is a
+			person or team; time runs left to right. Switch to see the routine work move into the system,
+			the handovers disappear, and the two decisions that stay with people.
 		</p>
 		<div class="toggle" role="group" aria-label="Show process">
-			<button type="button" aria-pressed={view === 'before'} onclick={() => (view = 'before')}
-				>Today</button
-			>
-			<button type="button" aria-pressed={view === 'after'} onclick={() => (view = 'after')}
-				>After the roadmap</button
-			>
+			<button type="button" aria-pressed={view === 'before'} onclick={() => (view = 'before')}>Today</button>
+			<button type="button" aria-pressed={view === 'after'} onclick={() => (view = 'after')}>After</button>
 		</div>
 		<div class="stats" aria-live="polite">
 			<div class="stat">
@@ -35,9 +31,7 @@
 				<div class="l">friction points</div>
 			</div>
 			<div class="stat">
-				<div class="v" class:bad={current.retypes > 0} class:good={current.retypes === 0}>
-					{current.retypes}
-				</div>
+				<div class="v" class:bad={current.retypes > 0} class:good={current.retypes === 0}>{current.retypes}</div>
 				<div class="l">times data is retyped</div>
 			</div>
 			<div class="stat">
@@ -53,14 +47,18 @@
 		</div>
 		<p class="disclaimer">Illustrative example. Your map is built from interviews with your own team.</p>
 	</div>
-	<!-- Both versions are in the page for search engines and AI assistants; one is shown at a time. -->
-	{#each Object.entries(views) as [key, v]}
-		<div class="map-card" hidden={view !== key}>
-			<div class="map-card-head">
-				<strong>Quote → invoice{key === 'before' ? ' · today' : ' · after the roadmap'}</strong>
-				<span>{v.label}</span>
-			</div>
-			<FlowList steps={v.steps} />
+	<div class="map-card example-card">
+		<div class="map-card-head">
+			<strong>Quote → invoice{view === 'before' ? ' · today' : ' · after'}</strong>
+			<span>{current.label}</span>
 		</div>
-	{/each}
+		<div class="viz-stage"><QuoteFlow bind:view /></div>
+		<!-- Both states as text, for search engines and assistive technology. -->
+		<div class="visually-hidden">
+			{#each Object.entries(views) as [key, v]}
+				<h3>{key === 'before' ? 'Today' : 'After'}</h3>
+				<ol>{#each v.steps as st}<li>{st.label}: {st.who}{st.note ? `. ${st.note}` : ''}</li>{/each}</ol>
+			{/each}
+		</div>
+	</div>
 </div>

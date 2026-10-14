@@ -6,6 +6,7 @@ export type CasePage = {
 	id: string; // matches cases[].id and the diagram variant
 	title: string;
 	description: string;
+	role: string;
 	sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
 	stack?: string;
 };
@@ -14,9 +15,10 @@ export const casePages: CasePage[] = [
 	{
 		slug: 'agency-operations-platform',
 		id: 'agency',
+		role: 'Digital transformation lead: process mapping, solution architecture, full development and deployment',
 		title: 'An operations platform for a creative agency: from scattered requests to a six-week pilot',
 		description:
-			'How a regional creative agency went from requests in chat and schedules in spreadsheets to a working operations platform, with capacity checked before work is committed and AI assisting the brief.',
+			'How a regional creative agency went from requests in chat and schedules in spreadsheets to a working operations platform: AI-assisted briefs and deliverables, automated hand-offs, resource-first scheduling, document control and audit.',
 		sections: [
 			{
 				heading: 'The situation',
@@ -33,9 +35,12 @@ export const casePages: CasePage[] = [
 				],
 				bullets: [
 					'Intake: every request becomes one record, however it arrives',
-					'AI-assisted briefs: the brief is drafted from the request, and a person completes and approves it',
-					'Resource-first scheduling: capacity is checked before work is committed, not after',
-					'Approvals, production workflow and resource tracking in one place',
+					'AI-assisted briefs: the brief is drafted from the request, and the AI proposes deliverables from the agency’s deliverables catalogue; a person completes and approves both',
+					'Automated workflow end to end: once an item is approved it is forwarded automatically to the people who need it for their own tasks, with no manual hand-off',
+					'Resource-first scheduling: capacity is checked before work is committed, not after, with SLAs and time tracking against each job',
+					'Document control: automatic versioning, filing and archiving of every deliverable, so the current version is never in doubt',
+					'Role-based access control and a full audit trail across the platform',
+					'Approvals, production workflow, resource tracking and finance export in one place',
 					'An exceptions dashboard: alerts focus attention on the issues that threaten delivery or a client relationship',
 					'A non-blocking model: warnings for impossible deadlines, weekends and holidays let people proceed, and every override is logged'
 				]
@@ -44,23 +49,25 @@ export const casePages: CasePage[] = [
 				heading: 'The result',
 				paragraphs: [
 					'A working pilot was running with the Client Services and Creative teams about six weeks after mapping began. Teams create and schedule projects through the new workflow, with AI assisting the routine parts and people keeping the decisions.',
-					'The platform was built multi-tenant and role-based from the start, so it can serve other agencies without being rebuilt.'
+					'The platform was built multi-tenant and role-based from the start, so it can serve other agencies without being rebuilt.',
+					'The visualisation on this page shows one selected workflow, a request moving through intake, brief, capacity check and approval, and does not represent the complete platform.'
 				]
 			}
 		],
-		stack: 'React, TypeScript, Supabase (PostgreSQL, row-level security, Edge Functions), automated database and end-to-end tests, Vercel'
+		stack: 'React and TypeScript; Supabase (PostgreSQL with row-level security, Edge Functions, Realtime, Storage); database tests, unit and end-to-end tests with CI; Vercel. English and Arabic.'
 	},
 	{
 		slug: 'ggi-esports-platform',
 		id: 'esports',
+		role: 'CTO: solution architect and lead developer',
 		title: 'GGI: running esports tournaments without an army of coordinators',
 		description:
-			'How an esports tournament platform for gamers in Iraq automated formats, fixtures, Discord channels and leaderboards, reached MVP in about three months and 5,000 users in its first three.',
+			'How an esports platform for gamers in Iraq automated tournament engines up to 4,000+ competitors, two-way Discord sync, promotion plans and leaderboards, reached MVP in about three months and 5,000 users in its first three.',
 		sections: [
 			{
 				heading: 'The situation',
 				paragraphs: [
-					'GGI set out to give gamers in Iraq a proper competitive platform. The problem with running tournaments is that almost all of the work is coordination: building brackets, publishing fixtures, creating Discord channels for each match, chasing results and updating standings. Done by hand, that caps how many events can run and how reliable they are.'
+					'GGI set out to give gamers in Iraq a proper competitive platform. The problem with running tournaments is that almost all of the work is coordination: choosing a format, building brackets, publishing fixtures, creating Discord channels, chasing results, updating standings and promoting the event. Done by hand, that caps how many events can run and how reliable they are.'
 				]
 			},
 			{
@@ -69,25 +76,65 @@ export const casePages: CasePage[] = [
 					'As CTO at ESTAZ I was lead developer and solution architect. The design principle was simple: anything a coordinator does more than once should be done by the system.'
 				],
 				bullets: [
-					'Automatic tournament-format generation from the number and type of entrants',
-					'Fixture generation for each stage, with advancement handled by the system',
-					'Discord integration: channels, fixtures and leaderboards created and updated automatically',
-					'Registration, results and rankings in one system, in English and Arabic',
-					'Role-based access for players, team admins, organisers, referees and site administrators'
+					'Smart tournament engines that cater for everything from small community events to tournaments with 4,000+ competitors: format selection, multi-stage structures, brackets, fixtures and advancement generated by the system',
+					'Two-way synchronisation with Discord: channels, fixtures, results and announcements kept in step between the platform and the community’s Discord server',
+					'Automatic generation of social media plans to promote each tournament',
+					'Registration, teams and clans, referees, results, rankings and notifications in one system, in English and Arabic',
+					'Role-based access for players, team admins, organisers, referees and site administrators, with an admin console and CMS'
 				]
 			},
 			{
 				heading: 'The result',
 				paragraphs: [
-					'Concept to a working MVP in about three months, full functionality within six, and more than 5,000 users registered in the first three months. Tournaments run with a fraction of the manual coordination they needed before.'
+					'Concept to a working MVP in about three months, full functionality within six, and more than 5,000 users registered in the first three months. Tournaments run with a fraction of the manual coordination they needed before.',
+					'The visualisation on this page shows one selected workflow, a single-elimination bracket with Discord channels and results, and does not represent the complete platform.'
 				]
 			}
 		],
-		stack: 'SvelteKit, TypeScript, Supabase, Discord bot with background job queue, English and Arabic, Vercel'
+		stack: 'SvelteKit and TypeScript; Supabase (PostgreSQL, row-level security, Edge Functions); Discord bot with a Redis-backed job queue; TrueSkill ratings; English and Arabic with right-to-left layout; Vercel.'
+	},
+	{
+		slug: 'keystone-ai-development-context',
+		id: 'keystone',
+		role: 'Designed, built and tested the tool; used it to manage its own development',
+		title: 'Keystone: keeping AI-assisted software projects from drifting',
+		description:
+			'A command-line tool that keeps requirements, decisions, rules and lessons in the repository and compiles exactly the context an AI coding agent needs for each task, deterministically. 248 automated tests.',
+		sections: [
+			{
+				heading: 'The problem',
+				paragraphs: [
+					'AI coding assistants make a developer much faster on any single task. On a real project, over weeks and months, they cause a different problem: they do not remember the decisions, rules and hard-won lessons that came before. Each session starts fresh. The result is code that drifts away from the architecture, repeats mistakes that were already fixed, and quietly breaks rules nobody wrote down.',
+					'The context that keeps a project consistent usually lives in people’s heads, chat histories and scattered documents. None of that is available to the agent when it starts work.'
+				]
+			},
+			{
+				heading: 'What I built',
+				paragraphs: [
+					'Keystone keeps that context in the repository itself, in structured files that are validated against a schema, and compiles it into a task brief for the AI agent. The same inputs always produce the same output, byte for byte, so the brief can be reviewed and trusted.'
+				],
+				bullets: [
+					'Requirements, architecture decisions, tasks, rules, learnings and known traps stored as structured, schema-validated files in the repo',
+					'A command-line workflow: initialise, start a task, compile its context, review, close',
+					'Deterministic indexing and compilation, so the output is identical on every run and in every environment',
+					'A three-role review gate that must pass before a task can be closed',
+					'248 automated tests covering the schema, the compiler and the commands'
+				]
+			},
+			{
+				heading: 'Why it matters for clients',
+				paragraphs: [
+					'I use AI assistance in my own development work, and this is how I keep that fast without letting it get sloppy. It is also the clearest evidence I can offer of how I engineer: schemas, tests, deterministic behaviour and a review step before anything is called done.',
+					'Keystone was used to manage its own development from the first commit.'
+				]
+			}
+		],
+		stack: 'Node.js and TypeScript command-line tool; JSON Schema validation; YAML; architecture decision records; 248 automated tests.'
 	},
 	{
 		slug: 'ai-invoice-matching',
 		id: 'ap',
+		role: 'Designed and built the prototype end to end',
 		title: 'AI that matches invoices but cannot approve its own payments',
 		description:
 			'A working prototype of an accounts payable workflow where AI reads and matches invoices, fixed rules enforce approval limits outside the AI, and anything over the limit waits for a named person.',
@@ -144,7 +191,7 @@ export const regions: Region[] = [
 		name: 'Southeast Asia',
 		title: 'Digital transformation consultant for Southeast Asia',
 		description:
-			'Process mapping, workflow automation and practical AI for businesses in Indonesia, Malaysia, Singapore and the wider region, delivered in English, Bahasa Indonesia and Malay from the same time zone.',
+			'Digital transformation for businesses in Indonesia, Malaysia, Singapore and the wider region: process mapping, solution design and hands-on build of custom software, integrations, automation and AI, delivered in English, Bahasa Indonesia and Malay from the same time zone.',
 		intro: [
 			'I am based in Indonesia and have lived and worked in the region for most of three decades, running operations in logistics and cold chain, oilfield services and energy projects. I work in English, Bahasa Indonesia and Malay, and I am in your time zone.',
 			'That matters for this kind of work. Mapping a process means talking to the people who do the job, not only the managers, and that conversation goes better in their own language and during their own working day.'
@@ -164,7 +211,7 @@ export const regions: Region[] = [
 			},
 			{
 				heading: 'Tools that fit regional reality',
-				body: 'WhatsApp is often the real system of record. Roadmaps are designed around how your people already communicate, not against it.'
+				body: 'WhatsApp is often the real system of record. Solutions are designed around how your people already communicate, not against it.'
 			}
 		],
 		markets: 'Indonesia, Malaysia, Singapore, the Philippines, Thailand and Vietnam.'
@@ -174,7 +221,7 @@ export const regions: Region[] = [
 		name: 'Middle East',
 		title: 'Digital transformation consultant for the Middle East and Gulf',
 		description:
-			'Process mapping, workflow automation and practical AI for agencies and businesses in the UAE, Iraq, Egypt and the Gulf, with bilingual English and Arabic delivery and references in the region.',
+			'Digital transformation for agencies and businesses in the UAE, Iraq, Egypt and the Gulf: process mapping, solution design and hands-on build of custom platforms, integrations, automation and AI, in English and Arabic, with references in the region.',
 		intro: [
 			'My most recent and most relevant work is in the Middle East: leading digital transformation for a regional creative agency across Iraq, Egypt and Dubai, building an esports platform that reached 5,000 users in Iraq, and delivering a tournament platform for an event in the UAE.',
 			'Before that I spent years in Dubai in executive operations and in contracts and procurement for onshore oil and gas development in Iraq.'
@@ -182,7 +229,7 @@ export const regions: Region[] = [
 		why: [
 			{
 				heading: 'Bilingual delivery',
-				body: 'The systems I have built for the region run in English and Arabic, including right-to-left interfaces. Roadmaps account for bilingual teams and clients from the start.'
+				body: 'The systems I have built for the region run in English and Arabic, including right-to-left interfaces. Solutions account for bilingual teams and clients from the start.'
 			},
 			{
 				heading: 'Agency and media operations',

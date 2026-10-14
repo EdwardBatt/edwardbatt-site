@@ -2,21 +2,23 @@
 	import { cases, otherWork, testimonials } from '$lib/content';
 	import { casePages } from '$lib/pages';
 	import Seo from '$lib/components/Seo.svelte';
-	import CaseDiagram from '$lib/components/CaseDiagram.svelte';
+	import CaseViz from '$lib/viz/CaseViz.svelte';
 	import Cta from '$lib/components/Cta.svelte';
 	const slugFor = (id: string) => casePages.find((p) => p.id === id)?.slug ?? '';
+	const roleFor = (id: string) => casePages.find((p) => p.id === id)?.role ?? '';
+	const stackFor = (id: string) => casePages.find((p) => p.id === id)?.stack ?? '';
 </script>
 
 <Seo
-	title="Work: operations platforms, automation and AI with controls | Edward Batt"
-	description="Case studies: a creative agency operations platform piloted in six weeks, an esports platform that reached 5,000 users in three months, and an AI invoice-matching prototype with approval controls."
+	title="Work: operational requirements turned into working systems | Edward Batt"
+	description="Case studies: an agency operations platform piloted in six weeks, an esports platform that reached 5,000 users in three months, Keystone (an engineering tool with 248 automated tests), and an AI invoice-matching prototype with approval controls."
 	path="/work/"
 />
 
 <section class="page-head">
 	<div class="wrap">
-		<h1>Mapped, built and running.</h1>
-		<p class="lead">I design and build the systems myself, so every roadmap is grounded in what can actually be delivered.</p>
+		<h1>Operational requirements, turned into working systems.</h1>
+		<p class="lead">Each case shows the business problem, the approach, what I was personally responsible for, the technology used and the verified outcome. I designed and built every one of these.</p>
 	</div>
 </section>
 
@@ -31,15 +33,15 @@
 						<p class="client">{c.client}</p>
 						<p class="problem">{c.problem}</p>
 						<ul>{#each c.did as item}<li>{item}</li>{/each}</ul>
+						<p class="case-meta"><b>My role:</b> {roleFor(c.id)}</p>
+						<p class="case-meta"><b>Built with:</b> {stackFor(c.id)}</p>
 						<a class="btn ghost" href={`/work/${slugFor(c.id)}/`}>Read the case study</a>
 					</div>
-					<div class="case-side">
-						<CaseDiagram variant={c.id} />
-						<div class="figure"><div class="v">{c.outcomeFigure}</div><p class="l">{c.outcomeLabel}</p><p class="o">{c.outcome}</p></div>
-					</div>
+					<div class="case-viz"><CaseViz variant={c.id} /></div>
 				</article>
 			{/each}
 		</div>
+		<div class="section-head center" style="margin-top: clamp(48px, 6vw, 80px)"><h2 class="h2">Also.</h2></div>
 		<div class="other">
 			{#each otherWork as w}<div><h3>{w.name}</h3><p>{w.body}</p></div>{/each}
 		</div>

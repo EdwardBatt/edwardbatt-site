@@ -28,7 +28,9 @@
 			url: SITE_URL,
 			image: `${SITE_URL}edward-batt.jpg`,
 			email: `mailto:${EMAIL}`,
-			jobTitle: 'Digital Transformation Consultant',
+			jobTitle: 'Digital Transformation Specialist and Software Architect',
+			description: 'End-to-end digital transformation: process and systems analysis, solution design and architecture, custom software development, systems integration, automation and AI. 30+ years of international operational and executive experience.',
+			knowsAbout: ['Digital transformation', 'Business process mapping', 'Solution architecture', 'Software development', 'Systems integration', 'Workflow automation', 'AI implementation', 'Operations management', 'Contracts and procurement'],
 			sameAs: [LINKEDIN_URL],
 			knowsLanguage: ['English', 'Indonesian', 'Malay'],
 			address: { '@type': 'PostalAddress', addressCountry: 'ID' }

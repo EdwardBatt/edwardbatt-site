@@ -5,8 +5,8 @@
 </script>
 
 <Seo
-	title="About Edward Batt: an operator who builds"
-	description="30+ years running operations, contracts and procurement across Asia-Pacific, the Middle East, Africa, Australia and South America, then CTO and digital transformation lead. I map how work is done and build the systems that change it."
+	title="About Edward Batt: I solve business problems. I build the solutions."
+	description="Digital transformation specialist combining 30+ years of international executive and operational experience with hands-on software architecture and engineering. I analyse how a business operates and design and build the solution myself."
 	path="/about/"
 />
 
@@ -14,8 +14,8 @@
 	<div class="wrap about-head">
 		<img class="portrait" src="/edward-batt.jpg" alt="Edward Batt" width="144" height="144" />
 		<div>
-			<h1>An operator who builds.</h1>
-			<p class="lead">I understand how the work is really done, and I can build the system that changes it.</p>
+			<h1>I solve business problems. I build the solutions.</h1>
+			<p class="lead">From business strategy and operational transformation to software architecture and development, I bridge the gap between understanding what needs to change and making it happen.</p>
 		</div>
 	</div>
 </section>
@@ -24,30 +24,43 @@
 	<div class="wrap about">
 		<div class="prose">
 			<p>
-				I’m Edward Batt. For 30+ years I ran operations, contracts and procurement across
-				Asia-Pacific, the Middle East, Africa, Australia and South America: oil, gas and LNG,
-				logistics and cold chain, mining and infrastructure. Chief Operations Officer, Director of
-				Operations, Senior Contracts and Procurement Manager on major energy projects.
+				I’m Edward Batt. Digital transformation has two halves: understanding how a business really
+				operates, and building the technology that changes it. Most people do one. I do both, and I
+				do them myself.
+			</p>
+			<h2>The operational half</h2>
+			<p>
+				For 30+ years I ran operations, contracts and procurement across Asia-Pacific, the Middle East,
+				Africa, Australia and South America: oil, gas and LNG projects, logistics and cold chain,
+				mining and infrastructure. Chief Operations Officer, Director of Operations, Senior Contracts
+				and Procurement Manager on major energy developments.
 			</p>
 			<p>
-				Then I moved into technology: designing embedded and automation systems, then Chief
-				Technology Officer of a regional digital company, and now leading digital transformation for a
-				regional creative agency, where I mapped the operating model and built the platform that runs
-				intake, scheduling and approvals.
+				That is not a separate advisory service. It is why the analysis is sound: I know what a
+				process looks like from inside it, what people will and will not adopt, and the difference
+				between a problem that needs software and one that needs a decision.
+			</p>
+			<h2>The technical half</h2>
+			<p>
+				I design and build software: multi-tenant web applications, database architecture, systems
+				integration, automated workflows and AI components, deployed to the cloud with automated
+				tests. As Chief Technology Officer of a regional digital company I was solution architect and
+				lead developer of an esports platform that reached 5,000 users in three months. I now lead
+				digital transformation for a regional creative agency, where I mapped the operating model and
+				built the platform that runs intake, scheduling and approvals.
 			</p>
 			<p>
-				That combination is the point. Most transformation advice comes from people who have never run
-				an operation, and most software comes from people who have never had to use it under
-				pressure. I have done both, and I do both parts of the work myself: the mapping and the
-				building.
+				Before that I designed embedded and automation systems. The
+				<a href="/work/keystone-ai-development-context/">Keystone</a> case study, a tool I built to
+				keep AI-assisted development disciplined, is the clearest picture of how I engineer.
 			</p>
 			<h2>How I work</h2>
 			<ul>
 				<li>Talk to the people who do the work, not only the managers.</li>
-				<li>Map before choosing any tool. The map usually makes the tool question small.</li>
+				<li>Understand the problem before choosing any technology. The technology must fit the business, not the other way around.</li>
+				<li>Custom build, existing platform, integration, automation, AI, or a combination: whichever solves it.</li>
 				<li>Keep people in control of consequential decisions, by design, not by policy.</li>
-				<li>Fixed prices agreed before work starts. No surprises.</li>
-				<li>Everything built is yours, documented and handed over.</li>
+				<li>Fixed prices agreed before work starts. Everything built is yours, documented and handed over.</li>
 			</ul>
 			<h2>Languages and location</h2>
 			<p>
