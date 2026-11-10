@@ -34,34 +34,39 @@
 </div>
 
 <!-- Every stage is rendered into the page so search engines and AI assistants can read all of it;
-     only the selected one is shown. -->
+     only the selected one is shown. The panels share one grid cell, so the area is always as tall as
+     the longest stage and the Previous / Next buttons, pinned to its bottom, never move. -->
+<div class="stage-panels">
 {#each stages as stage, i}
 	<div
 		class="stage-panel"
+		class:current={active === i}
 		id={`stage-panel-${i}`}
 		role="tabpanel"
 		aria-labelledby={`stage-tab-${i}`}
-		hidden={active !== i}
+		aria-hidden={active !== i}
+		inert={active !== i}
 	>
-		<div>
+		<div class="stage-main">
 			<h3>{String(i + 1).padStart(2, '0')} · {stage.name}</h3>
 			<div class="tags">
 				<span class="tag">{stage.when}</span>
 				<span class="tag tag-price">{stage.price}</span>
 			</div>
 			<p>{stage.happens}</p>
-			<div class="stage-nav">
-				<button type="button" disabled={i === 0} onclick={() => (active = i - 1)}>← Previous</button>
-				<button type="button" disabled={i === stages.length - 1} onclick={() => (active = i + 1)}
-					>Next stage →</button
-				>
-			</div>
 		</div>
-		<div>
+		<div class="stage-receive">
 			<p class="receive-h">What you receive</p>
 			<ul class="receive">
 				{#each stage.receive as item}<li>{item}</li>{/each}
 			</ul>
 		</div>
+		<div class="stage-nav">
+			<button type="button" disabled={i === 0} onclick={() => (active = i - 1)}>← Previous</button>
+			<button type="button" disabled={i === stages.length - 1} onclick={() => (active = i + 1)}
+				>Next stage →</button
+			>
+		</div>
 	</div>
 {/each}
+</div>

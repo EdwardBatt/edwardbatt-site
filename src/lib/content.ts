@@ -173,8 +173,8 @@ export type CaseStudy = {
 	problem: string;
 	did: string[];
 	outcome: string;
-	outcomeFigure: string;
-	outcomeLabel: string;
+	outcomeFigure?: string;
+	outcomeLabel?: string;
 	status?: string;
 };
 
@@ -250,6 +250,56 @@ export const cases: CaseStudy[] = [
 		outcomeFigure: '0',
 		outcomeLabel: 'payments the AI can approve beyond its delegated limit',
 		status: 'Working prototype'
+	},
+	{
+		id: 'docintake',
+		kicker: 'Finance automation',
+		title: 'From a pile of invoices to the accounting system, with a person checking every one',
+		client: 'AI document intake · accounts payable automation module',
+		problem:
+			'Accounts payable is mostly reading and retyping: classifying each document, copying its details, matching it to a supplier and purchase order, and coding it before it reaches the books.',
+		did: [
+			'Invoices, credit notes and receipt photos classified and extracted by AI, with OpenAI and Anthropic behind one provider interface',
+			'Matched to suppliers and purchase orders, coded and checked against business rules',
+			'A keyboard-driven review queue: a person reviews every document before export',
+			'Exports to Xero and QuickBooks Online with the source file attached, over OAuth 2.0; MYOB and Sage payloads; CSV and JSON; every export attempt logged',
+			'Every stage behind a small interface, so the AI provider, document types and accounting connectors can be swapped independently'
+		],
+		outcome: 'A working product demo that takes each document from intake to the accounting system, with a person reviewing every one before export',
+		status: 'Working product demo'
+	},
+	{
+		id: 'qrfield',
+		kicker: 'Field operations',
+		title: 'One app for the field team and the office, from install to approval',
+		client: 'QR field operations app · merchant QR-code installation programme',
+		problem:
+			'Field agents install QR codes at merchants and need to prove each install. Operations staff need to approve installs, see coverage across the country and manage commissions.',
+		did: [
+			'A field-agent view and an operations console in one progressive web app, with access by role',
+			'Agents work through their assigned merchants, install QR codes and verify each install with photos',
+			'A multi-step approval pipeline for operations staff',
+			'Coverage by province on a map, using PostGIS spatial queries, and agent commission management',
+			'QR codes generated in the app; multi-language interface; Supabase Auth with row-level security; Vitest tests'
+		],
+		outcome: 'One role-scoped app for field agents and operations, with every install verified by photos and reviewed through an approval pipeline'
+	},
+	{
+		id: 'compass',
+		kicker: 'Engineering tooling',
+		title: 'Shared memory that stops AI coding agents working from stale notes',
+		client: 'Compass · open-source project memory for AI coding agents',
+		problem:
+			'AI coding agents start every session knowing nothing about the project. Notes written to help them go stale without anyone noticing, and each tool keeps its own copy of the rules.',
+		did: [
+			'A tiered Markdown store in the repository: per task, an agent reads one map entry, one capsule of at most 60 lines and the source files, and the source always wins',
+			'Two routines: start, to orient, and close, to record only durable changes',
+			'A lint that fails the build on stale memory: dead paths, notes that duplicate code, a plan ahead of its status file, hand-edited generated rules',
+			'One config generates the instructions for Claude Code, Cursor, Gemini, Antigravity and AGENTS.md tools',
+			'No dependencies: Node and git; CI workflow, pre-commit hook and tests on Linux, Windows and macOS'
+		],
+		outcome: 'Open source under MPL-2.0, and the guardrail on most of my current projects',
+		status: 'Open source'
 	}
 ];
 

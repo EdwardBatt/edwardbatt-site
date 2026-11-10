@@ -56,7 +56,12 @@
 					{/each}
 				</ol>
 				<button type="button" class="viz-arrow" onclick={() => player.next()} aria-label="Next step">›</button>
-				<span class="viz-step-label" aria-live="polite">{steps[player.step]}</span>
+			</div>
+			<!-- Every label sits in the same grid cell, so the row is always as tall as the longest one
+			     and nothing around it moves. Only the current label is visible. -->
+			<div class="viz-step-label">
+				{#each steps as s, i}<span aria-hidden="true" class:current={player.step === i}>{s}</span>{/each}
+				<span class="visually-hidden" aria-live="polite">{steps[player.step]}</span>
 			</div>
 		{/if}
 	</div>

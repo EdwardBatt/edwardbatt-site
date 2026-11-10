@@ -4,7 +4,9 @@
 	import { casePages } from '$lib/pages';
 	import Seo from '$lib/components/Seo.svelte';
 	import CaseViz from '$lib/viz/CaseViz.svelte';
+	import CaseMedia from '$lib/components/CaseMedia.svelte';
 	import Cta from '$lib/components/Cta.svelte';
+	import { ArrowUpRight } from 'lucide-svelte';
 
 	let { data } = $props();
 	const { page, summary } = $derived(data);
@@ -32,7 +34,7 @@
 </section>
 
 <section class="section case-hero">
-	<div class="wrap"><CaseViz variant={page.id} /></div>
+	<div class="wrap">{#if page.media}<CaseMedia media={page.media} />{:else}<CaseViz variant={page.id} />{/if}</div>
 </section>
 
 <section class="section case-detail">
@@ -46,6 +48,9 @@
 			{#if page.stack}
 				<h2>Built with</h2>
 				<p>{page.stack}</p>
+			{/if}
+			{#if page.repo}
+				<p><a class="btn ghost" href={page.repo} target="_blank" rel="noopener">View on GitHub<ArrowUpRight aria-hidden="true" /></a></p>
 			{/if}
 			{#if quote}
 				<figure class="quote inline">
@@ -63,6 +68,12 @@
 				<h3>My role</h3>
 				<p class="aside-text">{page.role}</p>
 			</div>
+			{#if page.links}
+				<div class="aside-links">
+					<h3>Links</h3>
+					{#each page.links as l}<a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.label}</a>{/each}
+				</div>
+			{/if}
 			<div class="aside-links">
 				<h3>More work</h3>
 				{#each others as o}<a href={`/work/${o.slug}/`}>{o.title}</a>{/each}

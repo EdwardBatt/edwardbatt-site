@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "project": "Edward Batt Portfolio",
+  "owner": "Edward",
+  "ownerCommits": false,
+  "store": "docs/compass",
+  "tools": [
+    "claude",
+    "agents"
+  ],
+  "pin": "v0.3.1",
+  "ci": true,
+  "paths": {
+    "plan": "",
+    "roadmap": "",
+    "adr": "",
+    "schema": "",
+    "rules": []
+  },
+  "state": {
+    "inFlight": "In flight right now",
+    "waiting": "Waiting on Edward"
+  },
+  "lintCommand": "npm run compass"
+}

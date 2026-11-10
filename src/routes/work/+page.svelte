@@ -3,10 +3,14 @@
 	import { casePages } from '$lib/pages';
 	import Seo from '$lib/components/Seo.svelte';
 	import CaseViz from '$lib/viz/CaseViz.svelte';
+	import CaseMedia from '$lib/components/CaseMedia.svelte';
 	import Cta from '$lib/components/Cta.svelte';
+	import { ArrowUpRight } from 'lucide-svelte';
 	const slugFor = (id: string) => casePages.find((p) => p.id === id)?.slug ?? '';
 	const roleFor = (id: string) => casePages.find((p) => p.id === id)?.role ?? '';
 	const stackFor = (id: string) => casePages.find((p) => p.id === id)?.stack ?? '';
+	const mediaFor = (id: string) => casePages.find((p) => p.id === id)?.media;
+	const repoFor = (id: string) => casePages.find((p) => p.id === id)?.repo;
 </script>
 
 <Seo
@@ -35,9 +39,16 @@
 						<ul>{#each c.did as item}<li>{item}</li>{/each}</ul>
 						<p class="case-meta"><b>My role:</b> {roleFor(c.id)}</p>
 						<p class="case-meta"><b>Built with:</b> {stackFor(c.id)}</p>
-						<a class="btn ghost" href={`/work/${slugFor(c.id)}/`}>Read the case study</a>
+						{#if repoFor(c.id)}
+							<div class="case-actions">
+								<a class="btn ghost" href={`/work/${slugFor(c.id)}/`}>Read the case study</a>
+								<a class="btn ghost" href={repoFor(c.id)} target="_blank" rel="noopener">View on GitHub<ArrowUpRight aria-hidden="true" /></a>
+							</div>
+						{:else}
+							<a class="btn ghost" href={`/work/${slugFor(c.id)}/`}>Read the case study</a>
+						{/if}
 					</div>
-					<div class="case-viz"><CaseViz variant={c.id} /></div>
+					<div class="case-viz">{#if mediaFor(c.id)}<CaseMedia media={mediaFor(c.id)!} />{:else}<CaseViz variant={c.id} />{/if}</div>
 				</article>
 			{/each}
 		</div>

@@ -36,12 +36,15 @@
 >
 	<div class="map-card-head">
 		<strong>Quote → invoice, mapped</strong>
+		<!-- Both chip sets share one grid cell, so the header keeps the width of the wider set
+		     and the Today / After switch never moves. Only the current set is visible. -->
 		<div class="hero-status">
-			{#if view === 'after'}
-				<span class="chip auto">0 retypes</span><span class="chip human">2 human decisions</span>
-			{:else}
+			<span class="hero-chips" class:current={view === 'before'} aria-hidden={view !== 'before'}>
 				<span class="chip friction">4 retypes</span><span class="chip friction">1 bottleneck</span>
-			{/if}
+			</span>
+			<span class="hero-chips" class:current={view === 'after'} aria-hidden={view !== 'after'}>
+				<span class="chip auto">0 retypes</span><span class="chip human">2 human decisions</span>
+			</span>
 		</div>
 		<div class="hero-switch" role="group" aria-label="Show process">
 			<button type="button" aria-pressed={view === 'before'} onclick={() => (view = 'before')}>Today</button>

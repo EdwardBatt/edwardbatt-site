@@ -9,6 +9,27 @@ export type CasePage = {
 	role: string;
 	sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
 	stack?: string;
+	/** Shown in place of the process visualisation when set. Without `src`, a placeholder panel is shown. */
+	media?: CaseMedia;
+	/** Extra links listed in the aside, above "More work". */
+	links?: { label: string; href: string }[];
+	/** Public source repository, shown as a button on the work index card and the case page. */
+	repo?: string;
+};
+
+export type CaseImage = { src: string; alt: string; width: number; height: number };
+
+export type CaseMedia = {
+	title: string;
+	caption?: string;
+	/** When set, the media is a slider and `src`, `poster` and `placeholder` are ignored. */
+	slides?: { caption: string; images: CaseImage[] }[];
+	src?: string;
+	poster?: string;
+	alt: string;
+	width?: number;
+	height?: number;
+	placeholder?: string;
 };
 
 export const casePages: CasePage[] = [
@@ -165,6 +186,192 @@ export const casePages: CasePage[] = [
 			}
 		],
 		stack: 'Node and TypeScript with no runtime dependencies, Ed25519-signed authority, SQLite audit ledger, Anthropic API with an offline deterministic fallback for testing'
+	},
+	{
+		slug: 'ai-document-intake',
+		id: 'docintake',
+		role: 'Designed and built the product end to end',
+		title: 'From a pile of invoices to the accounting system, with a person checking every one',
+		description:
+			'An accounts payable automation module that classifies, extracts, matches and codes invoices, credit notes and receipt photos, puts each one in front of a person for review, then exports it to Xero or QuickBooks Online with the source file attached.',
+		sections: [
+			{
+				heading: 'The problem',
+				paragraphs: [
+					'Accounts payable is mostly reading and retyping: working out what a document is, copying its details across, finding the supplier and the purchase order, choosing the right codes and checking it against the business’s rules before it goes into the accounting system.',
+					'AI can do most of that reading. What it should not do is send anything to the books on its own. The aim was a module where the AI does the routine work and a person still signs off every document.'
+				]
+			},
+			{
+				heading: 'What I built',
+				paragraphs: [
+					'Every document moves through the same stages: intake, classification, extraction, matching, coding, rule checks, review and export. Each stage sits behind a small interface, so the AI provider, the document types and the accounting connectors can each be swapped without touching the others.'
+				],
+				bullets: [
+					'Invoices, credit notes and receipt photos are classified and their details extracted, using the OpenAI and Anthropic (Claude) APIs behind one provider interface',
+					'Each document is matched to its supplier and purchase order, coded, and checked against business rules',
+					'A keyboard-driven review queue: a person reviews each document before it reaches the accounting system',
+					'Bills and credit notes are pushed to Xero and QuickBooks Online with the source file attached, over OAuth 2.0, with tokens stored server-side and refreshed automatically',
+					'Purchase orders are imported from Xero; payloads are built for MYOB and Sage; CSV and JSON export are available for everything else',
+					'Every export attempt is logged'
+				]
+			},
+			{
+				heading: 'Why it matters',
+				paragraphs: [
+					'The AI prepares the work and a person decides what goes into the accounting system. Because the provider, the document types and the connectors are separate, the module can follow a client’s existing accounting system rather than asking them to change it.',
+					'The walkthrough on this page follows one document from intake through extraction, purchase order matching and the review queue to export into Xero.'
+				]
+			}
+		],
+		stack: 'Next.js 15, React and TypeScript; Tailwind 4 and shadcn/ui; react-pdf; Supabase (PostgreSQL, Storage, Realtime); OpenAI and Anthropic SDKs; Xero and QuickBooks Online over OAuth 2.0; Vercel. 2026.',
+		media: {
+			title: 'Walkthrough',
+			caption: 'Intake, extraction, purchase order match, review queue, export to Xero',
+			src: '/work/ai-document-intake/walkthrough.gif',
+			poster: '/work/ai-document-intake/poster.png',
+			alt: 'Screen recording of the document intake module: an invoice is uploaded, its details are extracted, it is matched to a purchase order, a reviewer approves it in the review queue, and it is exported to Xero.'
+		}
+	},
+	{
+		slug: 'qr-field-operations',
+		id: 'qrfield',
+		role: 'Architect and developer',
+		title: 'One app for the field team and the office, from install to approval',
+		description:
+			'A role-scoped progressive web app for a merchant QR-code installation programme: field agents install and verify QR codes with photos, and operations staff approve installs, track coverage by province on a map and manage commissions.',
+		sections: [
+			{
+				heading: 'The situation',
+				paragraphs: [
+					'A merchant QR-code installation programme has two kinds of user. Field agents visit merchants, install QR codes and need to prove each install was done. Operations staff need to review those installs, see where coverage stands across the country and manage what each agent is owed.'
+				]
+			},
+			{
+				heading: 'What I built',
+				paragraphs: [
+					'One codebase serves both: a field-agent view and an operations console, with access decided by role. It was built from a written build specification.'
+				],
+				bullets: [
+					'Agents see the merchants assigned to them, install QR codes and verify each install with photos',
+					'Operations staff review installs through a multi-step approval pipeline',
+					'Coverage by province shown on a map, using PostGIS spatial queries',
+					'Agent commissions managed in the operations console',
+					'QR codes generated in the app',
+					'A multi-language interface',
+					'Access enforced with Supabase Auth and row-level security, so each role sees only what it should; tested with Vitest'
+				]
+			},
+			{
+				heading: 'Why it matters',
+				paragraphs: [
+					'Field work is only as good as the evidence that it happened. Putting the agent’s install, its photos and the office’s approval in one system, with access enforced in the database, gives the field team and the office the same record to work from.'
+				]
+			}
+		],
+		stack: 'Next.js (App Router), React and TypeScript; Tailwind CSS; Zod; Supabase (PostgreSQL with PostGIS, Auth with row-level security, Storage); next-intl; Vitest; Vercel. 2026.',
+		media: {
+			title: 'Operations console and field app',
+			caption: 'Screens with dummy data',
+			alt: 'Screens from the operations console and the field-agent app, with dummy data.',
+			slides: [
+				{
+					caption: 'Operations dashboard: coverage by province, registration to install, and the install pipeline',
+					images: [
+						{
+							src: '/work/qr-field-operations/dashboard.webp',
+							alt: 'Operations console dashboard: headline figures for verified installs, coverage and commission; a hexagon map of install coverage by province; a funnel from registration to verified install; and the install pipeline from submitted through audit and approval.',
+							width: 1680,
+							height: 1254
+						}
+					]
+				},
+				{
+					caption: 'Labels generated in the app: the merchant’s QR, business name and serial, ready to print',
+					images: [
+						{
+							src: '/work/qr-field-operations/labels.webp',
+							alt: 'Label production screen: counts of labels awaiting generation, generated, sent to print and printed; the label template with QR code, business name in Arabic and Latin, and serial number; and a queue of labels by merchant and state.',
+							width: 1680,
+							height: 1078
+						}
+					]
+				},
+				{
+					caption: 'Field app on the agent’s phone: scan the merchant’s QR, collect the details, track earnings',
+					images: [
+						{
+							src: '/work/qr-field-operations/field-scan.webp',
+							alt: 'Field app, step 5 of 12: scan the QR on the merchant’s phone, which resolves to the merchant’s shop.',
+							width: 780,
+							height: 1600
+						},
+						{
+							src: '/work/qr-field-operations/field-details.webp',
+							alt: 'Field app, step 6 of 12: collect details, with the account number taken from the scanned QR, the business name, the owner name and the phone number entered twice.',
+							width: 780,
+							height: 1600
+						},
+						{
+							src: '/work/qr-field-operations/field-earnings.webp',
+							alt: 'Field app earnings screen: approved and payable amount, installs waiting on verification, a breakdown by task and progress against the monthly cap.',
+							width: 780,
+							height: 1600
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		slug: 'compass',
+		id: 'compass',
+		role: 'Designed and built the tool; it is the guardrail on most of my current projects',
+		title: 'Compass: shared memory that stops AI coding agents working from stale notes',
+		description:
+			'An open-source, dependency-free tool that gives AI coding agents one shared, tiered project memory in the repository, and a lint that fails the build when that memory goes stale.',
+		sections: [
+			{
+				heading: 'The problem',
+				paragraphs: [
+					'AI coding agents start every session knowing nothing about the project. They either read too much, which is slow and expensive, or too little, and work confidently from the wrong picture. Notes written to help them go stale without anyone noticing, and every tool keeps its own copy of the rules.'
+				]
+			},
+			{
+				heading: 'What I built',
+				paragraphs: [
+					'Compass keeps the project’s memory as a tiered Markdown store in docs/compass/. For each task, an agent reads a short map entry, one capsule of at most 60 lines and the source files it points to, not the whole codebase. The source code always wins over a note.'
+				],
+				bullets: [
+					'Two routines: start, to orient before work, and close, to record only what has changed durably',
+					'A lint that treats stale memory as a build failure: dead links and paths, notes that duplicate code, a plan that has moved ahead of its status file, and generated rules edited by hand',
+					'One compass.config.json generates the instructions for Claude Code, Cursor, Gemini, Antigravity and any tool that reads AGENTS.md, so every tool works from the same memory',
+					'No database, plugins or dependencies: Node 18.17+ and git',
+					'A CI workflow and a pre-commit hook, with tests on Linux, Windows and macOS'
+				]
+			},
+			{
+				heading: 'Why it matters',
+				paragraphs: [
+					'It is the guardrail on most of my current projects. It is also the precursor to Keystone, which takes the same idea further by compiling the exact context each task needs.',
+					'Compass is open source under the MPL-2.0 licence. The demo on this page runs in about 40 seconds: init sets up every tool, a hand edit to the generated rules fails the lint, and sync restores them.'
+				]
+			}
+		],
+		stack: 'Node.js with no dependencies; Markdown store in git; GitHub Actions CI and a git pre-commit hook; tested on Linux, Windows and macOS; MPL-2.0.',
+		media: {
+			title: 'Compass in 40 seconds',
+			caption: 'init, a hand edit failing the lint, sync restoring the rules',
+			src: '/work/compass/demo.gif',
+			alt: 'Terminal recording: compass init sets up the store and every tool’s instructions, a hand edit to a generated rules file makes compass lint fail, and compass sync restores the file so the lint passes.',
+			width: 1113,
+			height: 583
+		},
+		repo: 'https://github.com/EdwardBatt/Compass',
+		links: [
+			{ label: 'Compass on GitHub', href: 'https://github.com/EdwardBatt/Compass' },
+			{ label: 'Keystone, the tool it led to', href: '/work/keystone-ai-development-context/' }
+		]
 	}
 ];
 
