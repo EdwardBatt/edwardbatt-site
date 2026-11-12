@@ -3,6 +3,32 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Consent Mode v2 defaults. Must run before the Google tag below. -->
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('consent', 'default', {
+				ad_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+				analytics_storage: 'denied',
+				wait_for_update: 500
+			});
+			// Re-apply a returning visitor's saved choice before the tag reads consent.
+			// Key and values are shared with src/lib/consent.ts.
+			try {
+				if (localStorage.getItem('cookie-consent') === 'granted') {
+					gtag('consent', 'update', { analytics_storage: 'granted' });
+				}
+			} catch (e) {}
+		</script>
+		<!-- Google tag (GA4 via Google tag container GTM-PBM9D9F7). Always loads; consent above governs storage. -->
+		<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PBM9D9F7"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+		</script>
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" sizes="48x48" type="image/png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />

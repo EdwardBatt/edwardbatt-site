@@ -29,4 +29,5 @@ No capsule exists for these. Go to the source or the document named; write a cap
 | The animated process diagrams, or their controls jumping between steps | — | `src/lib/viz/`, `src/lib/viz/VizFrame.svelte`, `src/lib/viz/player.svelte.ts` | — |
 | Colours, fonts, light and dark mode | — | `src/lib/site.css`, `src/routes/+layout.svelte` | — |
 | Navigation, footer, SEO tags, contact details | — | `src/lib/components/`, `src/lib/site.ts` | — |
+| A commit failing, the pre-commit hook or the Compass lint | — | `compass.config.json`, `package.json`, `.github/workflows/compass.yml`; read the traps index first | — |
 | Deploying, the domain, the sitemap | — | `wrangler.jsonc`, `svelte.config.js`, `src/routes/sitemap.xml/+server.ts`, `static/robots.txt` | — |

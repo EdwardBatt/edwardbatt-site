@@ -2,6 +2,7 @@
 	import '$lib/site.css';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import CookieBanner from '$lib/components/CookieBanner.svelte';
 	let { children } = $props();
 </script>
 
@@ -10,3 +11,4 @@
 	{@render children()}
 </main>
 <Footer />
+<CookieBanner />

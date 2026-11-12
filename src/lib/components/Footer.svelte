@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { EMAIL, LINKEDIN_URL } from '$lib/site';
+	import { openCookieSettings } from '$lib/consent';
 </script>
 
 <footer class="site-footer">
@@ -25,7 +26,7 @@
 		</div>
 	</div>
 	<div class="wrap footer-base">
-		<span>© {new Date().getFullYear()} Edward Batt</span>
+		<span>© {new Date().getFullYear()} Edward Batt · <a href="/privacy/">Privacy</a> · <button type="button" class="link-button" onclick={openCookieSettings}>Cookie settings</button></span>
 		<span>Based in Indonesia, working across Asia-Pacific, the Middle East and Europe</span>
 	</div>
 </footer>

@@ -12,6 +12,7 @@ export function GET() {
 		...casePages.map((c) => ({ path: `/work/${c.slug}/`, priority: '0.8' })),
 		{ path: '/about/', priority: '0.7' },
 		{ path: '/contact/', priority: '0.7' },
+		{ path: '/privacy/', priority: '0.3' },
 		...regions.map((r) => ({ path: `/regions/${r.slug}/`, priority: '0.7' })),
 		{ path: '/insights/', priority: '0.7' },
 		...articles.map((a) => ({ path: `/insights/${a.slug}/`, priority: '0.6', lastmod: a.date }))
