@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SITE_URL } from '$lib/site';
-	import { extras, capabilities, faqs, pricing } from '$lib/content';
+	import { foundations, extras, capabilities, faqs, pricing } from '$lib/content';
 	import Seo from '$lib/components/Seo.svelte';
 	import StageExplorer from '$lib/components/StageExplorer.svelte';
 	import MappingExample from '$lib/components/MappingExample.svelte';
@@ -44,6 +44,17 @@
 			<p class="lead">Five stages, each priced before it starts. You decide after each one whether to continue.</p>
 		</div>
 		<StageExplorer />
+
+		<div class="section-head center foundations-head" id="foundations">
+			<h2 class="h2">What makes it stick.</h2>
+			<p class="lead">{foundations.lead}</p>
+		</div>
+		<div class="symptoms three">
+			{#each foundations.items as f}
+				<div class="symptom"><h3>{f.title}</h3><p>{f.body}</p></div>
+			{/each}
+		</div>
+		<p class="problem-close foundations-close">{foundations.close}</p>
 	</div>
 </section>
 

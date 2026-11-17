@@ -230,6 +230,10 @@ section { scroll-margin-top: 72px; }
 .symptoms { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 960px) { .symptoms { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .symptoms { grid-template-columns: minmax(0, 1fr); } }
+.symptoms.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .symptoms.three { grid-template-columns: minmax(0, 1fr); } }
+.foundations-head { margin-top: clamp(56px, 7vw, 96px); }
+.problem-close.foundations-close { max-width: 52ch; font-size: clamp(1.1rem, 1.6vw, 1.35rem); }
 .symptom { background: var(--bg-2); padding: 28px 24px 30px; display: grid; gap: 10px; align-content: start; border-top: 3px solid var(--blue); }
 .section.alt .symptom { background: var(--bg); }
 .symptom h3 { font-size: 1.2rem; font-weight: 500; line-height: 1.25; }

@@ -4,8 +4,8 @@ export const symptoms = [
 		body: 'Work still runs on spreadsheets, chat threads and one or two people who know how everything fits together.'
 	},
 	{
-		title: 'Software that does not fit',
-		body: 'Tools have been bought, but people retype, chase and copy between them because none of them match how the business actually works.'
+		title: 'Software that is paid for, not used',
+		body: 'Tools have been bought, but people work around them: retyping, chasing and copying between systems, or quietly going back to the old way.'
 	},
 	{
 		title: 'Systems that do not talk to each other',
@@ -33,7 +33,7 @@ export const stages: Stage[] = [
 		when: '20 minutes',
 		price: 'Free',
 		happens:
-			'A conversation about your business, where it is losing time and money, and what you are trying to achieve. If I do not think I can help, I will say so.',
+			'A conversation about your business, where it is losing time and money, what you are trying to achieve, and who will champion the change internally. If I do not think I can help, I will say so.',
 		receive: ['A clear view of whether this is worth pursuing', 'A proposed scope and fixed price for the next step']
 	},
 	{
@@ -77,10 +77,31 @@ export const stages: Stage[] = [
 		when: 'Optional, monthly',
 		price: 'Retainer',
 		happens:
-			'Deployment into production, then measured improvement: refining what was built, extending it as the business changes, and keeping adoption on track.',
-		receive: ['Production deployment and monitoring', 'Regular reviews against the plan', 'Changes and new capabilities as needs grow']
+			'Deployment into production, then measured improvement: refining what was built, extending it as the business changes, and working with your sponsor so the new way of working becomes the standard.',
+		receive: ['Production deployment and monitoring', 'Regular reviews of results and adoption with your sponsor', 'Changes and new capabilities as needs grow']
 	}
 ];
+
+/** What makes a transformation stick: shown under the lifecycle on the services page. */
+export const foundations = {
+	lead: 'Software changes a business when people use it. Three things decide whether it sticks, and I check for all of them on the discovery call.',
+	items: [
+		{
+			title: 'A sponsor with authority',
+			body: 'A leader who champions the change from within, and makes the new way of working non-optional when old habits return.'
+		},
+		{
+			title: 'People who take part',
+			body: 'The people who do the work are involved from the mapping onwards, and use the system consistently, not just when it suits them.'
+		},
+		{
+			title: 'Procedures that are followed',
+			body: 'How the work is done is agreed and actually followed. A process that lives on paper but not in practice cannot be digitised.'
+		}
+	],
+	close:
+		'Where the last two are weak, a well-designed system can help build them. Then the sponsor matters most: the system can teach the discipline, but it takes leadership to make it the standard.'
+};
 
 /** Engagements that can be taken on their own, without the full lifecycle. */
 export const extras = [
@@ -122,11 +143,11 @@ export const capabilities = [
 	},
 	{
 		title: 'Integrations and automation',
-		body: 'APIs, webhooks, background job queues and bots that connect existing systems and remove manual handovers.'
+		body: 'For work that follows rules: APIs, webhooks, background job queues and bots that connect existing systems and remove manual handovers.'
 	},
 	{
 		title: 'AI with controls',
-		body: 'Large language models for reading, drafting, matching and classification, with deterministic rules and human approval outside the model.'
+		body: 'For work that needs judgement: large language models for reading, drafting, matching and classification, with deterministic rules and human approval outside the model.'
 	},
 	{
 		title: 'Cloud and delivery',

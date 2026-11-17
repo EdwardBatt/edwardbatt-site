@@ -471,6 +471,46 @@ export type Article = {
 
 export const articles: Article[] = [
 	{
+		slug: 'why-digital-transformations-stall',
+		title: 'Why digital transformations stall: sponsor, people and process',
+		description:
+			'Most digital transformations do not fail because of the technology. They stall because a sponsor, the people or the procedures were missing. What each one does, what to do when two of them are weak, and where automation and AI fit.',
+		date: '2026-11-17',
+		minutes: 6,
+		html: `
+<p>Most digital transformations do not fail because of the technology. The software usually works. What fails is everything around it: nobody insists it is used, the people doing the work were never part of it, and the process it was built for only existed in a document.</p>
+<p>I have seen this from both sides: as an operations executive living with systems other people chose, and as the person designing and building them. The pattern is consistent enough that I now check for three foundations before any build starts.</p>
+<h2>Why it matters</h2>
+<p>A business that runs on spreadsheets, chat threads and a few people who know how everything fits together competes on effort. A business that runs on connected systems competes on leverage: it sees problems earlier, decides on better information and frees its people for the work that needs them. As AI raises what customers and staff expect, that gap widens. Transformation is less about buying software than about changing how the work gets done, so that it can be measured, improved and scaled.</p>
+<h2>The three foundations</h2>
+<ul>
+<li><strong>An executive sponsor.</strong> A leader with the authority to champion the change from within, and to make the new way of working non-optional when old habits return. Without one, the new system becomes an option, and options lose to habit.</li>
+<li><strong>Staff discipline and participation.</strong> The people who do the work are involved from the mapping onwards, and use the system consistently, not just when it suits them. A system is only as good as the data people put into it.</li>
+<li><strong>Procedures that are followed.</strong> How the work is done is agreed and actually followed. A process that lives on paper but not in practice cannot be digitised. <a href="/insights/map-the-process-before-you-automate-it/">Mapping the process</a> shows which one you have.</li>
+</ul>
+<h2>When people and procedures are weak</h2>
+<p>Many businesses come to transformation precisely because the second and third foundations are missing. That is not a reason to wait. A well-designed system can help build them:</p>
+<ul>
+<li>One record per request, however it arrives, so there is a single place where the work lives.</li>
+<li>The agreed steps built into the workflow, so following the procedure becomes the easiest path rather than extra effort.</li>
+<li>Warnings that let people proceed with the override recorded, instead of hard stops that get worked around.</li>
+<li>Visibility of who has what, so gaps in discipline show up early, not at a missed deadline.</li>
+</ul>
+<p>But when the system is doing that work, the sponsor becomes far more critical. The system can teach the discipline; it cannot make anyone use it. That takes a leader who retires the old channels, asks for reports from the system rather than from memory, and treats the new way as the standard. In practice the turning point is often small: a senior person replying to a request sent by chat with a link to the system instead of an answer.</p>
+<h2>Automation and AI are different tools</h2>
+<p>The two are often used as if they meant the same thing. They do not, and the difference decides where each belongs.</p>
+<p><strong>Automation follows rules.</strong> It is deterministic: the same input gives the same output, every time. It needs a defined, stable process, and when something unexpected happens it breaks loudly. It is the right tool for high-volume, repeatable work: moving data between systems, routing approvals, generating documents from one record.</p>
+<p><strong>AI recognises patterns.</strong> It copes with variation and unstructured input: reading documents, drafting, triage, summarising. But it is probabilistic, and it can fail quietly, confident but wrong. It needs good data, human checkpoints and <a href="/insights/where-ai-saves-time-and-where-it-should-not-decide/">a fixed rule outside the model that decides when a person must approve</a>.</p>
+<p>The short version: automate the certain, apply AI to the uncertain, and keep the decisions with people. Neither fixes a broken process. Both scale whatever process you already have, which is why the foundations come first.</p>
+<h2>Three questions to ask before you start</h2>
+<ul>
+<li><strong>Who will make this non-optional?</strong> Name the person, and check they will still be championing it three months after launch.</li>
+<li><strong>Will the people who do the work be involved?</strong> Not informed at the end: involved in mapping how the work really happens.</li>
+<li><strong>Is the process written down, and is it followed?</strong> If not, plan for the system to help build it, and plan for the sponsor to carry more of the load.</li>
+</ul>
+<p>If the answer to the first question is nobody, fix that before spending money on software. These three questions are part of every discovery call I take.</p>`
+	},
+	{
 		slug: 'map-the-process-before-you-automate-it',
 		title: 'Map the process before you automate it',
 		description:
