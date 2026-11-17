@@ -8,6 +8,23 @@
 	let stage = $state<'gif' | 'poster' | 'none'>('gif');
 	const onError = () => (stage = stage === 'gif' && media.poster ? 'poster' : 'none');
 
+	// Video: behaves like a GIF (muted, looped) but plays only while on screen, and never on its own
+	// for people who prefer reduced motion; the controls are always there. A missing file falls back
+	// the same way as the GIF.
+	let video = $state<HTMLVideoElement>();
+	$effect(() => {
+		const el = video;
+		if (!el) return;
+		el.muted = true;
+		if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		const io = new IntersectionObserver(([entry]) => {
+			if (entry.isIntersecting) el.play().catch(() => {});
+			else el.pause();
+		}, { threshold: 0.4 });
+		io.observe(el);
+		return () => io.disconnect();
+	});
+
 	// Slider: no autoplay. The arrow and dot buttons are the controls (keyboard included); swipe is a touch extra.
 	const slides = $derived(media.slides ?? []);
 	let current = $state(0);
@@ -76,7 +93,23 @@
 		</div>
 	{:else}
 		<div class="case-media-stage">
-			{#if media.src && stage !== 'none'}
+			{#if media.video && stage === 'gif'}
+				<!-- svelte-ignore a11y_media_has_caption (a silent screen recording; the alt text describes it) -->
+				<video
+					bind:this={video}
+					src={media.video}
+					poster={media.poster}
+					width={media.width}
+					height={media.height}
+					aria-label={media.alt}
+					muted
+					loop
+					playsinline
+					controls
+					preload="metadata"
+					onerror={onError}
+				></video>
+			{:else if (media.src || media.video) && stage !== 'none'}
 				{#if stage === 'gif'}
 					<picture>
 						{#if media.poster}<source media="(prefers-reduced-motion: reduce)" srcset={media.poster} />{/if}
@@ -96,7 +129,7 @@
 
 <style>
 	.case-media-stage { padding: clamp(12px, 2vw, 22px); }
-	.case-media-stage img { display: block; width: 100%; height: auto; max-width: 900px; margin-inline: auto; border: 1px solid var(--line); }
+	.case-media-stage img, .case-media-stage video { display: block; width: 100%; height: auto; max-width: 900px; margin-inline: auto; border: 1px solid var(--line); }
 	.case-media-placeholder {
 		display: grid;
 		place-items: center;

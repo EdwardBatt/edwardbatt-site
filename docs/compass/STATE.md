@@ -2,7 +2,7 @@
 type: state
 status: current
 origin: ai-derived
-verified: 2026-11-12
+verified: 2026-11-17
 sources:
   - src/lib/site.ts
   - src/lib/pages.ts
@@ -20,7 +20,7 @@ What runs today, as checked against the code. The plan says what is intended; th
 
 - Static build of every route (`src/routes/+layout.ts` sets `prerender` and `trailingSlash`), deployed as Cloudflare Workers static assets from `build/` (`wrangler.jsonc`).
 - Pages: home, services, work (index and case studies), insights (index and articles), regions, about, contact.
-- Seven case studies in `src/lib/pages.ts`. Four use the animated diagrams in `src/lib/viz/`. The other three use `src/lib/components/CaseMedia.svelte`: compass (demo GIF), qr-field-operations (three-slide screenshot slider) and ai-document-intake (see Partially built).
+- Seven case studies in `src/lib/pages.ts`. Four use the animated diagrams in `src/lib/viz/`. The other three use `src/lib/components/CaseMedia.svelte`: compass (demo GIF), qr-field-operations (three-slide screenshot slider) and ai-document-intake (a 4 MB MP4 walkthrough with a dashboard poster, played muted and looped only while on screen, never autoplayed under reduced motion; source and re-encode in the sibling project, see `docs/compass/MAP.md`).
 - Diagram and slider controls hold their position between steps: every caption, chip set or stage panel is laid in one grid cell, sized to the largest.
 - Compass v0.3.1 lints the store in CI (`.github/workflows/compass.yml`) and in the local pre-commit hook.
 - Google Analytics: the Google tag (container `GTM-PBM9D9F7`) loads unconditionally from `src/app.html`, after an inline Consent Mode v2 default (everything denied). `src/lib/components/CookieBanner.svelte` grants `analytics_storage` only on Accept; ad consent stays denied. The choice lives in localStorage under the key in `src/lib/consent.ts`, which the inline script in `src/app.html` also reads. The footer's Cookie settings link reopens the banner. `/privacy/` explains it.
@@ -29,7 +29,6 @@ What runs today, as checked against the code. The plan says what is intended; th
 ## Partially built
 
 - Booking: `BOOKING_URL` in `src/lib/site.ts` is empty, so every "Book a call" button opens a pre-filled email instead of a booking page.
-- The ai-document-intake case study has no walkthrough yet: its media panel shows a placeholder until the GIF arrives (see Waiting on Edward).
 
 ## Not built — described but absent
 
@@ -41,7 +40,6 @@ What runs today, as checked against the code. The plan says what is intended; th
 ## Waiting on Edward
 
 - A booking link (Google Calendar appointment page or Calendly) for `BOOKING_URL` in `src/lib/site.ts`.
-- Case-study media: the walkthrough GIF and its poster image for the ai-document-intake case study. The build only warns while they are missing (`svelte.config.js`), and the page shows a placeholder panel instead. Paths are set in `src/lib/pages.ts`.
 
 - Review the draft wording of `src/routes/privacy/+page.svelte`. It is not legal sign-off.
 

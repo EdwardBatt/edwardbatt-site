@@ -11,7 +11,7 @@ const config = {
 			// Warn instead of failing the build; the page falls back to a placeholder panel.
 			// Every other broken link still fails the build.
 			handleHttpError: ({ status, path, referrer, message }) => {
-				if (status === 404 && /^\/work\/[^/]+\/[^/]+\.(gif|png|jpe?g|webp)$/.test(path)) {
+				if (status === 404 && /^\/work\/[^/]+\/[^/]+\.(gif|png|jpe?g|webp|mp4)$/.test(path)) {
 					console.warn(`Missing case-study media: ${path} (linked from ${referrer})`);
 					return;
 				}

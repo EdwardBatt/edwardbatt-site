@@ -22,8 +22,10 @@ export type CaseImage = { src: string; alt: string; width: number; height: numbe
 export type CaseMedia = {
 	title: string;
 	caption?: string;
-	/** When set, the media is a slider and `src`, `poster` and `placeholder` are ignored. */
+	/** When set, the media is a slider and `src`, `video`, `poster` and `placeholder` are ignored. */
 	slides?: { caption: string; images: CaseImage[] }[];
+	/** An MP4 screen recording, played muted and looped like a GIF, with controls. Takes precedence over `src`. */
+	video?: string;
 	src?: string;
 	poster?: string;
 	alt: string;
@@ -220,17 +222,19 @@ export const casePages: CasePage[] = [
 				heading: 'Why it matters',
 				paragraphs: [
 					'The AI prepares the work and a person decides what goes into the accounting system. Because the provider, the document types and the connectors are separate, the module can follow a client’s existing accounting system rather than asking them to change it.',
-					'The walkthrough on this page follows one document from intake through extraction, purchase order matching and the review queue to export into Xero.'
+					'The walkthrough on this page starts on the dashboard, then follows the work: an invoice read by AI, the review queue and purchase order match, approval, a dispute with a drafted email to the supplier, the credit note that settles it, expenses, and export into Xero.'
 				]
 			}
 		],
 		stack: 'Next.js 15, React and TypeScript; Tailwind 4 and shadcn/ui; react-pdf; Supabase (PostgreSQL, Storage, Realtime); OpenAI and Anthropic SDKs; Xero and QuickBooks Online over OAuth 2.0; Vercel. 2026.',
 		media: {
 			title: 'Walkthrough',
-			caption: 'Intake, extraction, purchase order match, review queue, export to Xero',
-			src: '/work/ai-document-intake/walkthrough.gif',
+			caption: 'Dashboard, extraction, review, disputes and credit notes, expenses, export to Xero',
+			video: '/work/ai-document-intake/walkthrough.mp4',
 			poster: '/work/ai-document-intake/poster.png',
-			alt: 'Screen recording of the document intake module: an invoice is uploaded, its details are extracted, it is matched to a purchase order, a reviewer approves it in the review queue, and it is exported to Xero.'
+			width: 1280,
+			height: 800,
+			alt: 'Screen recording of the document intake module: the dashboard, an invoice uploaded and read by AI, the review queue with purchase order matching, approval, a disputed invoice with an AI-drafted email to the supplier, a credit note that settles the dispute, expenses, vendors, export to Xero, settings and the mobile layout.'
 		}
 	},
 	{
