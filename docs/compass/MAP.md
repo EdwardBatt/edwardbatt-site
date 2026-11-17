@@ -2,7 +2,7 @@
 type: map
 status: current
 origin: ai-derived
-verified: 2026-11-15
+verified: 2026-11-17
 sources: []
 ---
 
@@ -25,7 +25,7 @@ No capsule exists for these. Go to the source or the document named; write a cap
 |---|---|---|
 | Changing the words on the home or services page | — | `src/lib/content.ts`, `src/routes/+page.svelte`, `src/routes/services/+page.svelte` | — |
 | Adding or editing a case study, article or region page | — | `src/lib/pages.ts`, `src/lib/content.ts` (the Work index card), `src/routes/work/[slug]/+page.svelte`, `src/routes/insights/[slug]/+page.svelte`, `src/routes/regions/[slug]/+page.svelte` | — |
-| Case study screenshots, GIFs or image sliders | — | `src/lib/components/CaseMedia.svelte`, the `media` field in `src/lib/pages.ts`, files in `static/work/`; the ai-document-intake recordings are made outside this repo, in the sibling project at `../ai-document-intake/e2e/gifs/` (`walkthrough.mp4` and `walkthrough.gif`, built by `../ai-document-intake/e2e/make-demo.mjs`, ignored by git there) | — |
+| Case study screenshots, GIFs, videos or image sliders | — | `src/lib/components/CaseMedia.svelte`, the `media` field in `src/lib/pages.ts` (`video` for an MP4, `src` for a GIF), files in `static/work/`; the ai-document-intake recordings are made outside this repo, in the sibling project at `../ai-document-intake/e2e/gifs/` (`walkthrough.mp4` and `walkthrough.gif`, built by `../ai-document-intake/e2e/make-demo.mjs`, ignored by git there) | — |
 | The animated process diagrams, or their controls jumping between steps | — | `src/lib/viz/`, `src/lib/viz/VizFrame.svelte`, `src/lib/viz/player.svelte.ts` | — |
 | Colours, fonts, light and dark mode | — | `src/lib/site.css`, `src/routes/+layout.svelte` | — |
 | Navigation, footer, SEO tags, contact details | — | `src/lib/components/`, `src/lib/site.ts` | — |
