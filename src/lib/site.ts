@@ -1,11 +1,11 @@
-// Canonical public URL. Also referenced in static/robots.txt and static/sitemap.xml.
+// Canonical public URL. Also referenced in static/robots.txt; the sitemap is generated from it.
 export const SITE_URL = 'https://edwardbatt.com/';
 
 export const EMAIL = 'edward@edwardbatt.com';
 
 // Paste the booking link (Google Calendar appointment page or Calendly) here when it exists.
 // While it is empty, "Book a call" buttons open an email instead.
-export const BOOKING_URL = '';
+export const BOOKING_URL = 'https://calendar.app.google/DFXGVjgTxxtyWvmS9';
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/edward-batt';
 

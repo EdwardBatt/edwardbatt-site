@@ -25,21 +25,19 @@ What runs today, as checked against the code. The plan says what is intended; th
 - Compass v0.3.1 lints the store in CI (`.github/workflows/compass.yml`) and in the local pre-commit hook.
 - Google Analytics: the Google tag (container `GTM-PBM9D9F7`) loads unconditionally from `src/app.html`, after an inline Consent Mode v2 default (everything denied). `src/lib/components/CookieBanner.svelte` grants `analytics_storage` only on Accept; ad consent stays denied. The choice lives in localStorage under the key in `src/lib/consent.ts`, which the inline script in `src/app.html` also reads. The footer's Cookie settings link reopens the banner. `/privacy/` explains it.
 - The sitemap is generated at build time by `src/routes/sitemap.xml/+server.ts` from `src/lib/pages.ts`.
+- Booking: `BOOKING_URL` in `src/lib/site.ts` points to a free Google Calendar appointment schedule (20-minute discovery call, owned by the edward@edwardbatt.com Google account). Every "Book a call" button opens it in a new tab; the mailto fallback in `bookingHref` is used only if the URL is emptied.
 
 ## Partially built
 
-- Booking: `BOOKING_URL` in `src/lib/site.ts` is empty, so every "Book a call" button opens a pre-filled email instead of a booking page.
 
 ## Not built — described but absent
 
 ## Confirmed problems
 
-- `README.md` and the comment at the top of `src/lib/site.ts` still say the domain is repeated in a static sitemap file. That file no longer exists: the sitemap is generated, so only `static/robots.txt` repeats the domain.
+- `README.md` still says the domain is repeated in a static sitemap file. That file no longer exists: the sitemap is generated, so only `static/robots.txt` repeats the domain.
 - `legacy/` and `_to_delete/` hold retired components from earlier versions of the site. Nothing imports them; do not build on them.
 
 ## Waiting on Edward
-
-- A booking link (Google Calendar appointment page or Calendly) for `BOOKING_URL` in `src/lib/site.ts`.
 
 - Review the draft wording of `src/routes/privacy/+page.svelte`. It is not legal sign-off.
 

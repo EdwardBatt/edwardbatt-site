@@ -54,6 +54,14 @@
 			How Google handles this data is described in
 			<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites that use its services</a>.
 		</p>
+		<h2>Booking a call</h2>
+		<p>
+			The "Book a call" buttons open a booking page hosted by Google Calendar. If you book, Google
+			collects your name, email address, company and what you would like to discuss, and sends us both a
+			calendar invitation with a Google Meet link. I use these details only to prepare for and hold the
+			call. How Google handles them is described in its
+			<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.
+		</p>
 		<h2>Contact</h2>
 		<p>
 			If you email me, I use your message and address only to reply. For any question about your
